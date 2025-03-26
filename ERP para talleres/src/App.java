@@ -15,7 +15,7 @@ public class App {
             System.out.println("3. Inventario.");
             System.out.println("4. Facturas.");
             System.out.println("5. Citas.");
-            System.out.println("6. Asiganar empleado a Servicio");
+            System.out.println("6. Asignar empleado a un servicio");
             System.out.println("7. Listas (Empleados, Clientes, Servicios y Proveedores).");
             System.out.println("8. Gestionar (Proveedores, Empleados, Clientes).");
             System.out.println("9. Contabilidad.");
