@@ -17,6 +17,13 @@ public class Taller {
             opcion = sc.nextInt();
             sc.nextLine(); //Todos los sc.nextLine() o sc.next() serán para limpiar el bufer del scanner
         } while (opcion !=4);
+        switch(opcion){
+
+            case 1 -> {
+                
+            }
+
+        }
 
     }
     //sub Menu para servicios
@@ -48,7 +55,7 @@ public class Taller {
     //sub Menu para gestionar las facturas
     public void menuFacturas(){
         do { 
-            System.out.pritnln("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
             System.out.println("1. Crear Factura.");
             System.out.println("2. Modificar Factura.");
             System.out.println("3. Mostrar Factura específica.");
