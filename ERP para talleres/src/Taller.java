@@ -71,4 +71,51 @@ public class Taller {
 
         } while (opcion !=4);
     }
+
+    //subMenu para encargar un servicio a un empleadol. 
+    public void menuAsignarServicio(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Asignar servicio a un empleado.");
+            System.out.println("2. Modificar servicio asignado a un empleado.");
+            System.out.println("3. Eliminar servicio asignado a un empleado.");
+            System.out.println("4. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+        } while (opcion != 4);
+    }
+    public void menuListas(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Listar Empleados.");
+            System.out.println("2. Listar Clientes.");
+            System.out.println("3. Listar Servicios.");
+            System.out.println("4. Listar Proveedores.");
+            System.out.println("5. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+        } while (opcion != 5);
+    }
+    public void menuGestionarDatosTaller(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Gestionar Proveedores.");
+            System.out.println("2. Gestionar Empleados.");
+            System.out.println("3. Gestionar Clientes.");
+            System.out.println("4. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+        } while (opcion != 4);
+    }
+    public void menuContabilidad(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Ver balance.");
+            System.out.println("2. Ver ingresos.");
+            System.out.println("3. Ver gastos.");
+            System.out.println("4. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+        } while (opcion != 4);
+    }
 }
