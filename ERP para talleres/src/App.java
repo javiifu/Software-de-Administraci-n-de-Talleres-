@@ -1,16 +1,9 @@
-import View.Taller;
-import java.sql.Connection;
 import java.util.Scanner;
 
+import view.Taller;
 public class App {
 
     public static void main(String[] args) {
-        Connection conexion = ConexionBD.conectar();
- if (conexion != null) {
- System.out.println("Conexión establecida correctamente.");
- } else {
- System.out.println("No se pudo establecer la conexión.");
- }
         Taller taller = new Taller();
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -25,8 +18,8 @@ public class App {
             System.out.println("4. Facturas.");
             System.out.println("5. Citas.");
             System.out.println("6. Asignar empleado a un servicio");
-            System.out.println("7. Listas (Empleados, Clientes, Servicios y Proveedores).");
-            System.out.println("8. Gestionar (Proveedores, Empleados, Clientes).");
+            System.out.println("7. Listas (Empleados, Cliente, Servicios y Proveedores).");
+            System.out.println("8. Gestionar (Proveedores, Empleados, Cliente).");
             System.out.println("9. Contabilidad.");
             System.out.println("10. Salir.");
             opcion = sc.nextInt();
@@ -44,7 +37,7 @@ public class App {
             case 8 -> taller.menuGestionarDatosTaller();
             case 9 -> taller.menuContabilidad();
             case 10 -> System.out.println("Gracias por usar nuestro ERP para talleres.");
-        }
+        } 
         sc.close();
     }
 }

@@ -3,7 +3,7 @@ CREATE DATABASE TALLER;
 USE Taller;
 
 CREATE TABLE Empleados (
-    ID INT(20),
+    ID INT AUTO_INCREMENT,
     DNI_Empleado VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50),
@@ -12,7 +12,7 @@ CREATE TABLE Empleados (
 );
 
 CREATE TABLE Clientes (
-    ID INT(20),
+    ID INT AUTO_INCREMENT,
     DNI_Cliente VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50),
@@ -21,7 +21,7 @@ CREATE TABLE Clientes (
 );
 
 CREATE TABLE Vehiculos (
-    ID INT(20),
+    ID INT AUTO_INCREMENT,
     Matricula VARCHAR(7) PRIMARY KEY,
     Marca VARCHAR(50),
     Modelo VARCHAR(50),
@@ -40,7 +40,7 @@ CREATE TABLE Proveedores (
 );
 
 CREATE TABLE Inventario (
-    ID INT(20) PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     Cantidad INT(10),
     Nombre VARCHAR(50),
     Proveedor VARCHAR(50),
@@ -49,7 +49,7 @@ CREATE TABLE Inventario (
 
 
 CREATE TABLE Pedidos (
-    ID INT(20) PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     Producto VARCHAR(50),
     Cantidad INT(10),
     Proveedor VARCHAR(9),
@@ -60,7 +60,7 @@ CREATE TABLE Pedidos (
 );
 
 CREATE TABLE Servicios (
-    ID_Servicio INT(20) PRIMARY KEY,
+    ID_Servicio INT AUTO_INCREMENT PRIMARY KEY,
     Servicio VARCHAR(50),
     Descripcion VARCHAR(50),
     Vehiculo VARCHAR(7),
@@ -69,7 +69,7 @@ CREATE TABLE Servicios (
 );
 
 CREATE TABLE Citas (
-    ID_Cita INT(20) PRIMARY KEY,
+    ID_Cita INT AUTO_INCREMENT PRIMARY KEY,
     Fecha DATE,
     Vehiculo VARCHAR(7),
     FOREIGN KEY (Vehiculo) REFERENCES Vehiculos(Matricula)
@@ -77,7 +77,7 @@ CREATE TABLE Citas (
 );
 
 CREATE TABLE Factura (
-    ID_Factura INT(20) PRIMARY KEY,
+    ID_Factura INT AUTO_INCREMENT PRIMARY KEY,
     Cliente VARCHAR(50),
     Servicio INT(20),
     Coste DOUBLE(6,2),

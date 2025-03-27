@@ -1,3 +1,4 @@
+package view;
 import java.util.Scanner;
 
 public class Taller {
@@ -95,7 +96,7 @@ public class Taller {
         do { 
             System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
             System.out.println("1. Listar Empleados.");
-            System.out.println("2. Listar Clientes.");
+            System.out.println("2. Listar Cliente.");
             System.out.println("3. Listar Servicios.");
             System.out.println("4. Listar Proveedores.");
             System.out.println("5. Volver al menú principal.");
@@ -108,7 +109,7 @@ public class Taller {
             System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
             System.out.println("1. Gestionar Proveedores.");
             System.out.println("2. Gestionar Empleados.");
-            System.out.println("3. Gestionar Clientes.");
+            System.out.println("3. Gestionar Cliente.");
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();

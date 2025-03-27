@@ -1,3 +1,4 @@
+package model;
 public class Servicios {
     //Atributos de la clase Servicios
     private String nombre;
