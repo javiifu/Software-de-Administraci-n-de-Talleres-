@@ -21,7 +21,7 @@ public class Clientes {
         new ArrayList<Vehiculos>();
 
     }
-    //Creamos de momento métodos get y set de los atributos de la clase
+    //Creamos los métodos get y set para los atributos de la clase
     public String getNombre() {
         return nombre;
     }
