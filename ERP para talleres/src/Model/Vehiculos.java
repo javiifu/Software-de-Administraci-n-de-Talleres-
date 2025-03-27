@@ -1,5 +1,4 @@
-
-
+package Model;
 public class Vehiculos {
     //Atributos de la clase vehiculos
     private String matricula;
