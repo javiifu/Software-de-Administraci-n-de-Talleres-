@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+
+
 public class Vehiculos {
     //Atributos de la clase vehiculos
     private String matricula;
@@ -7,6 +10,7 @@ public class Vehiculos {
     private String color;
     private String tipoCombustible;
     private Clientes propietario;
+    private ArrayList<Servicios> servicios;
 
     //Constructor de la clase vehículos
 
@@ -17,6 +21,7 @@ public class Vehiculos {
         this.color = color;
         this.tipoCombustible = tipoCombustible;
         this.propietario = propietario;
+        this.servicios = new ArrayList<Servicios>();
     }
 
     //Creamos de momento métodos get y set de los atributos de la clase vehículos. 
