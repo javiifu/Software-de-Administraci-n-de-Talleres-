@@ -12,7 +12,7 @@ public class App {
             System.out.println("1. Registros.");
             System.out.println("2. Servicios.");
             System.out.println("3. Inventario.");
-            System.out.println("4. Asiganar empleado a Servicio.");
+            System.out.println("4. Asignar empleado a Servicio.");
             System.out.println("5. Citas.");
             System.out.println("6. Facturas.");
             System.out.println("7. Listas (Empleados, Clientes, Servicios y Proveedores).");
