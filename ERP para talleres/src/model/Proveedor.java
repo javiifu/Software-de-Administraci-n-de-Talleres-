@@ -1,5 +1,5 @@
 package model;
-public class Proveedores {
+public class Proveedor {
     //Atributos de la clase
     private String nombre;
     private String cif;
@@ -7,7 +7,7 @@ public class Proveedores {
     private int telefono;
     private String email;
     //Constructor de la clase
-    public Proveedores (String nombre, String cif, String direccion, int telefono, String email){
+    public Proveedor (String nombre, String cif, String direccion, int telefono, String email){
         this.nombre = nombre;
         this.cif = cif;
         this.direccion = direccion;

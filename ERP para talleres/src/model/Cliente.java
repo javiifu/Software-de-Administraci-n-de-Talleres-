@@ -10,7 +10,7 @@ public class Cliente {
     private String Direccion;
     private int telefono;
     private String email;
-    private ArrayList<Vehiculos> vehiculos;
+    private ArrayList<Vehiculo> vehiculos;
     //Constructor de la clase
     public Cliente (String nombre, String Apellidos, String Dni, String Direccion, int telefono, String email){
         this.nombre = nombre;
@@ -19,7 +19,7 @@ public class Cliente {
         this.Direccion = Direccion;
         this.telefono = telefono;
         this.email = email;
-        this.vehiculos = new ArrayList<Vehiculos>();
+        this.vehiculos = new ArrayList<Vehiculo>();
 
     }
     //Creamos los métodos get y set para los atributos de la clase

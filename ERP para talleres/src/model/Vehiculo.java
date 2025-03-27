@@ -2,7 +2,7 @@ package model;
 import java.util.ArrayList;
 
 
-public class Vehiculos {
+public class Vehiculo {
     //Atributos de la clase vehiculos
     private String matricula;
     private String marca;
@@ -10,18 +10,18 @@ public class Vehiculos {
     private String color;
     private String tipoCombustible;
     private Cliente propietario;
-    private ArrayList<Servicios> servicios;
+    private ArrayList<Servicio> servicios;
 
     //Constructor de la clase vehículos
 
-    public Vehiculos(String matricula, String marca, String modelo, String color, String tipoCombustible, Cliente propietario) {
+    public Vehiculo(String matricula, String marca, String modelo, String color, String tipoCombustible, Cliente propietario) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
         this.tipoCombustible = tipoCombustible;
         this.propietario = propietario;
-        this.servicios = new ArrayList<Servicios>();
+        this.servicios = new ArrayList<Servicio>();
     }
 
     //Creamos de momento métodos get y set de los atributos de la clase vehículos. 
