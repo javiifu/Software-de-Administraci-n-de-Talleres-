@@ -1,4 +1,4 @@
-
+package model;
 import java.util.ArrayList;
 
 
@@ -9,12 +9,12 @@ public class Vehiculos {
     private String modelo;
     private String color;
     private String tipoCombustible;
-    private Clientes propietario;
+    private Cliente propietario;
     private ArrayList<Servicios> servicios;
 
     //Constructor de la clase vehículos
 
-    public Vehiculos(String matricula, String marca, String modelo, String color, String tipoCombustible, Clientes propietario) {
+    public Vehiculos(String matricula, String marca, String modelo, String color, String tipoCombustible, Cliente propietario) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -56,10 +56,10 @@ public class Vehiculos {
     public void setTipoCombustible(String tipoCombustible) {
         this.tipoCombustible = tipoCombustible;
     }
-    public Clientes getPropietario() {
+    public Cliente getPropietario() {
         return propietario;
     }
-    public void setPropietario(Clientes propietario) {
+    public void setPropietario(Cliente propietario) {
         this.propietario = propietario;
     }
 }

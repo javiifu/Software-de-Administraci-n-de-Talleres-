@@ -1,7 +1,8 @@
+package model;
 import java.util.ArrayList;
 
 
-public class Clientes {
+public class Cliente {
     //Atributos de la clase
     private String nombre;
     private String Apellidos;
@@ -11,16 +12,16 @@ public class Clientes {
     private String email;
     private ArrayList<Vehiculos> vehiculos;
     //Constructor de la clase
-        public Clientes (String nombre, String Apellidos, String Dni, String Direccion, int telefono, String email){
-            this.nombre = nombre;
-            this.Apellidos = Apellidos;
-            this.Dni = Dni;
-            this.Direccion = Direccion;
-            this.telefono = telefono;
-            this.email = email;
-            this.vehiculos = new ArrayList<Vehiculos>();
+    public Cliente (String nombre, String Apellidos, String Dni, String Direccion, int telefono, String email){
+        this.nombre = nombre;
+        this.Apellidos = Apellidos;
+        this.Dni = Dni;
+        this.Direccion = Direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.vehiculos = new ArrayList<Vehiculos>();
 
-        }
+    }
     //Creamos los métodos get y set para los atributos de la clase
     public String getNombre() {
         return nombre;

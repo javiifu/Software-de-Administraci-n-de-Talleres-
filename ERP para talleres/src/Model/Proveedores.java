@@ -1,4 +1,4 @@
-
+package model;
 public class Proveedores {
     //Atributos de la clase
     private String nombre;
