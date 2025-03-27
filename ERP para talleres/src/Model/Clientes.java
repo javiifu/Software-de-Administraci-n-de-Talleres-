@@ -3,13 +3,14 @@ import java.util.ArrayList;
 
 
 public class Clientes {
+    //Atributos de la clase
     private String nombre;
     private String Apellidos;
     private String Dni;
     private String Direccion;
     private int telefono;
     private String email;
-
+    //Constructor de la clase
     public Clientes (String nombre, String Apellidos, String Dni, String Direccion, int telefono, String email){
         this.nombre = nombre;
         this.Apellidos = Apellidos;
@@ -19,5 +20,42 @@ public class Clientes {
         this.email = email;
         new ArrayList<Vehiculos>();
 
+    }
+    //Creamos de momento métodos get y set de los atributos de la clase
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getApellidos() {
+        return Apellidos;
+    }
+    public void setApellidos(String apellidos) {
+        this.Apellidos = apellidos;
+    }
+    public String getDni() {
+        return Dni;
+    }
+    public void setDni(String dni) {
+        this.Dni = dni;
+    }
+    public String getDireccion() {
+        return Direccion;
+    }
+    public void setDireccion(String direccion) {
+        this.Direccion = direccion;
+    }
+    public int getTelefono() {
+        return telefono;
+    }
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
