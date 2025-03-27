@@ -16,6 +16,7 @@ CREATE TABLE Clientes (
     DNI_Cliente VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50),
+    FechaInscrito DATE,
     Num_tlf INT(9)
 );
 

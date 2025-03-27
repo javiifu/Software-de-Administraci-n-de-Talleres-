@@ -1,8 +1,16 @@
 import View.Taller;
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
+        Connection conexion = ConexionBD.conectar();
+ if (conexion != null) {
+ System.out.println("Conexión establecida correctamente.");
+ } else {
+ System.out.println("No se pudo establecer la conexión.");
+ }
         Taller taller = new Taller();
         Scanner sc = new Scanner(System.in);
         int opcion;
