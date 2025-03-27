@@ -30,19 +30,57 @@ CREATE TABLE Vehiculos (
 );
 
 CREATE TABLE Inventario (
-    ID INT(20),
+    ID INT(20) PRIMARY KEY,
     Cantidad INT(10),
     Nombre VARCHAR(50),
     Proveedor VARCHAR(50),
-    FOREIGN KEY Proveedor REFERENCES Proveedor(ID_Proveedor)
+    FOREIGN KEY Proveedor REFERENCES Proveedores(NIF)
 );
 
-Create table Proveedor (
-    NIF INT(20) PRIMARY KEY,
+CREATE TABLE Proveedores (
+    NIF VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Tipo VARCHAR(50),
     Direccion VARCHAR(50),
     CorreoElectronico VARCHAR(100),
     
 
-)
+);
+
+CREATE TABLE Pedidos (
+    ID INT(20) PRIMARY KEY,
+    Producto VARCHAR(50),
+    Cantidad INT(10),
+    Proveedor VARCHAR(9),
+    CosteUnidad DOUBLE(6,2),
+    FOREIGN KEY  Proveedor REFERENCES Proveedores(NIF)
+
+
+);
+
+CREATE TABLE Servicios (
+    ID_Servicio INT(20) PRIMARY KEY,
+    Servicio VARCHAR(50)
+    Descripcion VARCHAR(50),
+    Vehiculo VARCHAR(7),
+    FOREIGN KEY Vehiculo REFERENCES Vehiculos(Matricula)
+
+);
+
+CREATE TABLE Citas (
+    ID_Cita INT(20) PRIMARY KEY,
+    Fecha DATE,
+    Vehiculo VARCHAR(7),
+    FOREIGN KEY Vehiculo REFERENCES Vehiculos(Matricula)
+
+);
+
+CREATE TABLE Factura (
+    ID_Factura INT(20) PRIMARY KEY,
+    Cliente VARCHAR(50),
+    Servicio INT(20),
+    Coste DOUBLE(6,2),
+    FOREIGN KEY Servicio REFERENCES Servicios(ID_Servicio),
+    FOREIGN KEY Cliente REFERENCES Clientes(DNI_Cliente)
+
+);

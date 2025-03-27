@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class ConexionBD {
     // URL de conexión a la base de datos MySQL
  private static final String URL = 
- "jdbc:mysql://localhost:3306/seed.sql"; // Cambia el nombre de la base de datos
+ "jdbc:mysql://localhost:3306/Taller"; // Cambia el nombre de la base de datos
  
   private static final String USUARIO = "Marcos"; // Nombre de usuario de MySQL
  
