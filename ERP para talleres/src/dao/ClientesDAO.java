@@ -1,19 +1,20 @@
 package dao;
-import java.util.ArrayList;
 import java.sql.*;
+import java.util.ArrayList;
 import model.Cliente;
 
 public class ClientesDAO {
+
     public void insertar(Cliente cliente) {
         Connection conexion = ConexionBD.conectar();
         if (conexion != null) {
-            String query = "INSERT INTO Cliente (DNI_Cliente, Nombre, Apellidos, FechaInscrito, Num_tlf) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Cliente (DNI_Cliente, Nombre, Apellidos, FechaInscrito, Num_tlf) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
-                stmt.setString(2, cliente.getDni()); // Asigna el valor del teléfono
-                stmt.setString(3, cliente.getNombre()); 
-                stmt.setString(4, cliente.getApellidos());
-                stmt.setDate(5, java.sql.Date.valueOf(java.time.LocalDate.now()));
-                stmt.setInt(6, cliente.getTelefono());
+                stmt.setString(1, cliente.getDni()); // Asigna el valor del teléfono
+                stmt.setString(2, cliente.getNombre()); 
+                stmt.setString(3, cliente.getApellidos());
+                stmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
+                stmt.setInt(5, cliente.getTelefono());
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
                 System.out.println("Cliente agregado exitosamente.");
             }catch (SQLException e) {
@@ -45,12 +46,20 @@ public class ClientesDAO {
             String query = "SELECT * FROM Cliente"; 
             try (Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             // Iterar sobre los resultados
+                Cliente x; 
+                int id;
+                String nombre;
+                String apellidos;
+                String Dni;
+                int telefono;
+
                 while (rs.next()) {
-                    System.out.println("ID: " + rs.getInt("id_cliente"));
-                    System.out.println("Nombre: " + rs.getString("nombre"));
-                    System.out.println("Teléfono: " + rs.getString("telefono"));
-                    System.out.println("Dirección: " + rs.getString("direccion"));
-                    System.out.println("----------------------");
+                    id = rs.getInt("ID");
+                    nombre = rs.getString("Nombre");
+                    telefono = rs.getInt("Num_tlf");
+                    apellidos = rs.getString("Apellidos");
+                    
+                    Cliente cliente = new Cliente(id, nombre, telefono, apellidos);
                 }  
             }catch (SQLException e) {
                 System.out.println("Error al realizar la consulta: " + e.getMessage());
