@@ -6,7 +6,7 @@ CREATE TABLE Empleados (
     ID INT AUTO_INCREMENT,
     DNI_Empleado VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
-    Apellidos VARCHAR(50),
+    Apellidos VARCHAR(50),/* Falta por meter numero de la seguirdad social y su número de cuenta bancaria.*/
     Num_tlf INT(9), 
     Profesion VARCHAR(50)
 );
@@ -15,14 +15,14 @@ CREATE TABLE Clientes (
     ID INT AUTO_INCREMENT,
     DNI_Cliente VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
-    Apellidos VARCHAR(50),
+    Apellidos VARCHAR(50), /*Falta por poner email y dirección, para poder guardarlos. */
     FechaInscrito DATE,
     Num_tlf INT(9)
 );
 
 CREATE TABLE Vehiculos (
     ID INT AUTO_INCREMENT,
-    Matricula VARCHAR(7) PRIMARY KEY,
+    Matricula VARCHAR(7) PRIMARY KEY,  /*tipo de combustibel lo podemos poner igual en modelo*/
     Marca VARCHAR(50),
     Modelo VARCHAR(50),
     Cliente VARCHAR(9),

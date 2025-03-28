@@ -5,18 +5,18 @@ import java.util.ArrayList;
 public class Cliente {
     //Atributos de la clase
     private String nombre;
-    private String Apellidos;
-    private String Dni;
-    private String Direccion;
+    private String apellidos;
+    private String dni;
+    private String direccion;
     private int telefono;
     private String email;
     private ArrayList<Vehiculo> vehiculos;
     //Constructor de la clase
-    public Cliente (String nombre, String Apellidos, String Dni, String Direccion, int telefono, String email){
+    public Cliente (String nombre, String apellidos, String dni, String direccion, int telefono, String email){
         this.nombre = nombre;
-        this.Apellidos = Apellidos;
-        this.Dni = Dni;
-        this.Direccion = Direccion;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
         this.vehiculos = new ArrayList<Vehiculo>();
@@ -30,22 +30,22 @@ public class Cliente {
         this.nombre = nombre;
     }
     public String getApellidos() {
-        return Apellidos;
+        return apellidos;
     }
-    public void setApellidos(String apellidos) {
-        this.Apellidos = apellidos;
+    public void setapellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
-    public String getDni() {
-        return Dni;
+    public String getdni() {
+        return dni;
     }
-    public void setDni(String dni) {
-        this.Dni = dni;
+    public void setdni(String dni) {
+        this.dni = dni;
     }
-    public String getDireccion() {
-        return Direccion;
+    public String getdireccion() {
+        return direccion;
     }
-    public void setDireccion(String direccion) {
-        this.Direccion = direccion;
+    public void setdireccion(String direccion) {
+        this.direccion = direccion;
     }
     public int getTelefono() {
         return telefono;
