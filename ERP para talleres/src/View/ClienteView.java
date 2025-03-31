@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import model.*;
 import model.Cliente;
+import ClientesDAO;
 
 public class ClienteView {
 
@@ -35,6 +36,7 @@ public class ClienteView {
                     System.out.println("Introduzca el nombre nuevo: ");
                     this.nuevoNombre = sc.nextLine();sc.next();
                     cliente.setNombre(this.nuevoNombre);
+                    cliente.actualizar(Nombre, nuevoNombre, )
 
                 }
                 case 2 -> {
