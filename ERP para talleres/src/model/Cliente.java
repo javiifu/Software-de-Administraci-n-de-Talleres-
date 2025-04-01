@@ -29,10 +29,9 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getApellidos() {
+    public String getapellidos() {
         return apellidos;
     }
-<<<<<<< HEAD:ERP para talleres/src/model/Cliente.java
     public void setapellidos(String apellidos) {
         this.apellidos = apellidos;
     }
@@ -46,21 +45,6 @@ public class Cliente {
         return direccion;
     }
     public void setdireccion(String direccion) {
-=======
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-    public String getDni() {
-        return dni;
-    }
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
->>>>>>> Marcos-KQBG:ERP para talleres/src/Model/Cliente.java
         this.direccion = direccion;
     }
     public int getTelefono() {
