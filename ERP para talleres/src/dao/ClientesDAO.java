@@ -10,12 +10,12 @@ public class ClientesDAO {
         if (conexion != null) {
             String query = "INSERT INTO Clientes (DNI_Cliente, Nombre, Apellidos, FechaInscrito, Num_tlf, Direccion, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
-                stmt.setString(1, cliente.getDni()); // Asigna el valor del teléfono
+                stmt.setString(1, cliente.getdni()); // Asigna el valor del teléfono
                 stmt.setString(2, cliente.getNombre()); 
-                stmt.setString(3, cliente.getApellidos());
+                stmt.setString(3, cliente.getapellidos());
                 stmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
                 stmt.setString(5, cliente.getTelefono());
-                stmt.setString(6, cliente.getDireccion());
+                stmt.setString(6, cliente.getdireccion());
                 stmt.setString(7, cliente.getEmail());
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
                 System.out.println("Cliente agregado exitosamente.");

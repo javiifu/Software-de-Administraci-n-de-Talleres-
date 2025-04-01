@@ -7,7 +7,7 @@ public class ClienteView {
 
     
     
-    public void actualizarCliente() {
+    public void gestionarCliente() {
 
         ClientesDAO cldao = new ClientesDAO();
         Scanner sc = new Scanner(System.in);
@@ -21,14 +21,14 @@ public class ClienteView {
         String dni ="DNI_Cliente";
 
         
-        System.out.println("¿Qué cliente desea actualizar? Introduzca su dni: ");
+        System.out.println("¿Qué cliente desea gestionar? Introduzca su dni: ");
         respuesta = sc.next();
         Cliente cliente = cldao.buscarPorDni(respuesta);
         
         
         do{       
 
-            System.out.println("¿Qué desea actualizar de su cliente?");
+            System.out.println("¿Qué desea gestionar de su cliente?");
             System.out.println("1. Nombre");
             System.out.println("2. Apellidos");
             System.out.println("3. Direccion");

@@ -3,7 +3,10 @@ import java.util.Scanner;
 
 public class Taller {
 
+
+    //Atributos clase Taller
     Scanner sc = new Scanner(System.in);
+    ClienteView clienteView = new ClienteView();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -20,7 +23,7 @@ public class Taller {
             switch(opcion){
 
                 case 1 -> {
-                    //Registrar el clinete
+                    clienteView.crearCliente();
                 }
                 case 2 -> {
                     //Registrar empleado
@@ -233,7 +236,7 @@ public class Taller {
                     //Gestionar empleados
                 }
                 case 3 -> {
-                    //Gestionar clientes
+                    subMenuGestionCliente();
                 }
             }
         } while (opcion != 4);
@@ -262,5 +265,25 @@ public class Taller {
         } while (opcion != 4);
         
     }
-    public void Asignacion
+    public void subMenuGestionCliente(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Modificar Cliente datos de cliente.");
+            System.out.println("2. Eliminar Cliente.");
+            System.out.println("3. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    clienteView.gestionarCliente();
+                }
+                case 2 -> {
+                    clienteView.eliminarCliente();
+                }
+               default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        } while (opcion != 3);
+    }
 }
