@@ -10,7 +10,7 @@ public class ProveedorDAO {
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                 stmt.setString(1, proveedor.getCif()); // Asigna el valor del teléfono
                 stmt.setString(2, proveedor.getNombre()); 
-                stmt.setString(3, proveedor.getapellidos());
+                stmt.setString(3, proveedor.getSuministro());
                 stmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
                 stmt.setString(5, cliente.getTelefono());
                 stmt.setString(6, cliente.getdireccion());
