@@ -26,12 +26,7 @@ public class ClienteView {
         Cliente cliente = cldao.buscarPorDni(respuesta);
         
         
-        do{
-            
-             
-                   
-            
-
+        do{       
 
             System.out.println("¿Qué desea actualizar de su cliente?");
             System.out.println("1. Nombre");
@@ -48,7 +43,7 @@ public class ClienteView {
                 case 1 -> {
                     System.out.println("Introduzca el nombre nuevo: ");
                     respuesta = sc.nextLine();sc.next();
-                    cldao.actualizar(nombre, respuesta, cliente.getDni());
+                    cldao.actualizar(nombre, respuesta, cliente.getdni());
                     
                     
 
@@ -56,25 +51,25 @@ public class ClienteView {
                 case 2 -> {
                     System.out.println("Introduzca los apellidos nuevos: ");
                     respuesta = sc.nextLine();sc.next();
-                    cldao.actualizar(apellidos, respuesta, cliente.getDni());
+                    cldao.actualizar(apellidos, respuesta, cliente.getdni());
 
                     
                 }
                 case 3 -> {
                     System.out.println("Introduzca la direccion nueva: ");
                     respuesta = sc.nextLine(); sc.next();
-                    cldao.actualizar(direccion, respuesta, cliente.getDni());
+                    cldao.actualizar(direccion, respuesta, cliente.getdni());
                     
                 }
                 case 4 -> {
                     System.out.println("Introduzca el telefono nuevo: ");
                     respuesta = sc.nextLine(); sc.next();
-                    cldao.actualizar(telefono, respuesta, cliente.getDni());
+                    cldao.actualizar(telefono, respuesta, cliente.getdni());
                 }
                 case 5 -> {
                     System.out.println("Introduzca el email nuevo: ");
                     respuesta = sc.nextLine(); sc.next();
-                    cldao.actualizar(email, respuesta, cliente.getDni());
+                    cldao.actualizar(email, respuesta, cliente.getdni());
                 }
                 default -> {
                     System.out.println("Introduzca una opcion válida");
