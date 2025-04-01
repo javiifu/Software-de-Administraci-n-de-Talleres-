@@ -1,32 +1,45 @@
 package view;
+import dao.ClientesDAO;
 import java.util.Scanner;
-
-import model.*;
 import model.Cliente;
-import ClientesDAO;
 
 public class ClienteView {
 
     
-    private int nuevoTelefono;
-    private String nuevoNombre;
-    private String nuevoApellido;
-    private String nuevoDni;
-    private String nuevaDireccion;
-    private String nuevoEmail;
+    
+    public void actualizarCliente() {
 
-    public void actualizarCliente(Cliente cliente) {
+        ClientesDAO cldao = new ClientesDAO();
         Scanner sc = new Scanner(System.in);
         int eleccion;
+        String respuesta;
+        String nombre = "Nombre";
+        String apellidos = "Apellidos";
+        String telefono = "Num_tlf";
+        String direccion = "Direccion";
+        String email = "Email";
+        String dni ="DNI_Cliente";
+
+        
+        System.out.println("¿Qué cliente desea actualizar? Introduzca su dni: ");
+        respuesta = sc.next();
+        Cliente cliente = cldao.buscarPorDni(respuesta);
+        
+        
         do{
+            
+             
+                   
+            
+
+
             System.out.println("¿Qué desea actualizar de su cliente?");
             System.out.println("1. Nombre");
             System.out.println("2. Apellidos");
-            System.out.println("3. Dni");
-            System.out.println("4. Direccion");
-            System.out.println("5. Telefono");
-            System.out.println("6. Email");
-            System.out.println("7. Salir");
+            System.out.println("3. Direccion");
+            System.out.println("4. Telefono");
+            System.out.println("5. Email");
+            System.out.println("6. Salir");
             System.out.println("Introduzca una opcion: ");
 
             eleccion = sc.nextInt();
@@ -34,37 +47,34 @@ public class ClienteView {
             switch(eleccion){
                 case 1 -> {
                     System.out.println("Introduzca el nombre nuevo: ");
-                    this.nuevoNombre = sc.nextLine();sc.next();
-                    cliente.setNombre(this.nuevoNombre);
-                    cliente.actualizar(Nombre, nuevoNombre, )
+                    respuesta = sc.nextLine();sc.next();
+                    cldao.actualizar(nombre, respuesta, cliente.getDni());
+                    
+                    
 
                 }
                 case 2 -> {
                     System.out.println("Introduzca los apellidos nuevos: ");
-                    this.nuevoApellido = sc.nextLine();sc.next();
-                    cliente.setApellidos(this.nuevoApellido);
+                    respuesta = sc.nextLine();sc.next();
+                    cldao.actualizar(apellidos, respuesta, cliente.getDni());
+
+                    
                 }
                 case 3 -> {
-                    System.out.println("Introduzca el dni nuevo: ");
-                    this.nuevoDni = sc.nextLine();sc.next();
-                    cliente.setDni(this.nuevoDni);
+                    System.out.println("Introduzca la direccion nueva: ");
+                    respuesta = sc.nextLine(); sc.next();
+                    cldao.actualizar(direccion, respuesta, cliente.getDni());
                     
                 }
                 case 4 -> {
-                    System.out.println("Introduzca la direccion nueva: ");
-                    this.nuevaDireccion = sc.nextLine(); sc.next();
-                    cliente.setDireccion(this.nuevaDireccion);
-                    
+                    System.out.println("Introduzca el telefono nuevo: ");
+                    respuesta = sc.nextLine(); sc.next();
+                    cldao.actualizar(telefono, respuesta, cliente.getDni());
                 }
                 case 5 -> {
-                    System.out.println("Introduzca el telefono nuevo: ");
-                    this.nuevoTelefono= sc.nextInt();
-                    cliente.setTelefono(this.nuevoTelefono);
-                }
-                case 6 -> {
                     System.out.println("Introduzca el email nuevo: ");
-                    this.nuevoEmail = sc.nextLine(); sc.next();
-                    cliente.setEmail(this.nuevoEmail);
+                    respuesta = sc.nextLine(); sc.next();
+                    cldao.actualizar(email, respuesta, cliente.getDni());
                 }
                 default -> {
                     System.out.println("Introduzca una opcion válida");
@@ -73,16 +83,88 @@ public class ClienteView {
     
             
 
-        }while(eleccion != 7);
+        }while(eleccion != 6);
 
         
     }
 
-    public String getNuevoNombre() { return nuevoNombre; }
-    public String getNuevoApellido() { return nuevoApellido; }
-    public String getNuevoDni() { return nuevoDni; }
-    public String getNuevaDireccion() { return nuevaDireccion; }
-    public String getNuevoEmail() { return nuevoEmail; }
-    public int getNuevoTelefono() { return nuevoTelefono; }
+    public void crearCliente() {
+        ClientesDAO cldao = new ClientesDAO();
+        Scanner sc = new Scanner(System.in);
+        int eleccion;
+        String nombre;
+        String apellidos;
+        String telefono;
+        String direccion;
+        String email;
+        String dni;
+        
+
+        System.out.println("Bienvenido a la creacion de clientes");
+        System.out.println("Introduzca los valores de su cliente: ");
+
+        System.out.println("Dni");
+        dni = sc.nextLine();sc.next();
+
+        System.out.println("Nombre");
+        nombre = sc.nextLine();sc.next();
+
+        System.out.println("Apellidos");
+        apellidos = sc.nextLine();sc.next();
+
+        System.out.println("Direccion");
+        direccion = sc.nextLine();sc.next();
+
+        System.out.println("Telefono");
+        telefono = sc.nextLine();sc.next();
+
+        System.out.println("Email");
+        email = sc.nextLine();sc.next();
+
+        Cliente cliente = new Cliente(nombre, apellidos, dni, direccion, telefono, email);
+        cldao.insertar(cliente);
+    }       
+           
+    public void eliminarCliente() {
+
+        Scanner sc = new Scanner(System.in);
+        ClientesDAO cldao = new ClientesDAO();
+        String respuesta;
+        boolean control = false;
+
+        if (cldao.obtenerTodos() != null) {
+
+            do{
+                System.out.println("¿Qué cliente desea eliminar?");
+                System.out.println("Introduzca su Dni: ");
+                respuesta = sc.nextLine();sc.next();
+            
+                
+                if ( cldao.buscarPorDni(respuesta) != null) {
+        
+                    cldao.eliminar(respuesta);
+                    System.out.println("Cliente eliminado con exito");
+                    control = true;
+                } else {
+                    System.out.println("El DNI que ha introducido no esta relacionado con ningun cliente existente");
+                    
+                }
+    
+            }while(!control);
+
+        } else {
+            System.out.println("Si no hay clientes como vas a borrarlos, iluminado");
+        }
+            
+        
+        
+            
+        
+
+
+    }
+        
+        
+    
 
 }

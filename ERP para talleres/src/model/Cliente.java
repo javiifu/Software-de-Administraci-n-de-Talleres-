@@ -8,11 +8,11 @@ public class Cliente {
     private String apellidos;
     private String dni;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String email;
     private ArrayList<Vehiculo> vehiculos;
     //Constructor de la clase
-    public Cliente (String nombre, String apellidos, String dni, String direccion, int telefono, String email){
+    public Cliente (String nombre, String apellidos, String dni, String direccion, String telefono, String email){
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -47,10 +47,10 @@ public class Cliente {
     public void setdireccion(String direccion) {
         this.direccion = direccion;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     public String getEmail() {

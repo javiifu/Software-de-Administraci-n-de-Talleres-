@@ -14,7 +14,7 @@ public class ClientesDAO {
                 stmt.setString(2, cliente.getNombre()); 
                 stmt.setString(3, cliente.getApellidos());
                 stmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));
-                stmt.setInt(5, cliente.getTelefono());
+                stmt.setString(5, cliente.getTelefono());
                 stmt.setString(6, cliente.getDireccion());
                 stmt.setString(7, cliente.getEmail());
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
@@ -34,8 +34,8 @@ public class ClientesDAO {
                 String query = "UPDATE Clientes SET ? = ? WHERE Dni_Clientes = ?";
                 try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                     
-                    stmt.setString(1, atributo ); // Asigna el nuevo teléfono
-                    stmt.setString(2,  valor);
+                    stmt.setString(1, atributo ); // Columna que deseamos cambiar
+                    stmt.setString(2,  valor); // valor que le queremos dar
                     stmt.setString(3, dni); // Asigna el ID del cliente
                     stmt.executeUpdate(); // Ejecuta la actualización
                     
@@ -53,7 +53,16 @@ public class ClientesDAO {
 
     }
     
-    public void eliminar(int id) {
+    public void eliminar(String dni) {
+        Connection conexion = ConexionBD.conectar();
+        if (conexion != null) {String query = "DELETE FROM clientes WHERE id_cliente = ?";
+            try (PreparedStatement stmt = conexion.prepareStatement(query)) {stmt.setString(1, dni); // Asigna el ID del cliente
+                stmt.executeUpdate(); // Ejecuta la eliminación
+                System.out.println("Cliente eliminado.");
+            } catch (SQLException e) {
+                System.out.println("Error al eliminar cliente: " + e.getMessage());
+            }
+        }
 
     }
 
@@ -63,7 +72,7 @@ public class ClientesDAO {
             Cliente cliente;
             String nombre;
             String apellidos;
-            int telefono;
+            String telefono;
             String email;
             String direccion;
         
@@ -86,7 +95,7 @@ public class ClientesDAO {
                     apellidos = rs.getString("Apellidos");
                     dni = rs.getString("Dni_Cliente");
                     direccion = rs.getString("Direccion");
-                    telefono = rs.getInt("Num_tlf");
+                    telefono = rs.getString("Num_tlf");
                     email = rs.getString("Email");
 
                     cliente = new Cliente(nombre, apellidos, dni, direccion, telefono, email);
@@ -121,7 +130,7 @@ public class ClientesDAO {
                 String nombre;
                 String apellidos;
                 String dni;
-                int telefono;
+                String telefono;
                 String email;
                 String direccion;
                 
@@ -129,7 +138,7 @@ public class ClientesDAO {
                 while (rs.next()) {
                     
                     nombre = rs.getString("Nombre");
-                    telefono = rs.getInt("Num_tlf");
+                    telefono = rs.getString("Num_tlf");
                     apellidos = rs.getString("Apellidos");
                     dni = rs.getString("Dni_Cliente");
                     direccion = rs.getString("Direccion");
