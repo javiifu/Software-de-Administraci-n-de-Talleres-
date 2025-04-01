@@ -2,7 +2,7 @@ package model;
 import java.util.ArrayList;
 
 
-public class Empleados {
+public class Empleado {
     //Atributos de la clase empleados
     private String nombre;
     private String apellidos;
@@ -10,16 +10,16 @@ public class Empleados {
     private int numeroSS;
     private String cuentaBancaria;
     private boolean disponible;
-    private ArrayList<Servicios> servicios;
+    private ArrayList<Servicio> servicios;
     //Creamos un constructor para la clase empleados
-    public Empleados(String nombre, String apellidos, String dni, int numeroSS, String cuentaBancaria, boolean disponible) {
+    public Empleado(String nombre, String apellidos, String dni, int numeroSS, String cuentaBancaria, boolean disponible) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.numeroSS = numeroSS;
         this.cuentaBancaria = cuentaBancaria;
         this.disponible = disponible;
-        this.servicios = new ArrayList<Servicios>();
+        this.servicios = new ArrayList<Servicio>();
     }
     //Creamos los métodos get y set para los atributos de la clase
     public String getNombre() {
@@ -58,10 +58,10 @@ public class Empleados {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-    public ArrayList<Servicios> getServicios() {
+    public ArrayList<Servicio> getServicios() {
         return servicios;
     }
-    public void setServicios(ArrayList<Servicios> servicios) {
+    public void setServicios(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
     }
 }
