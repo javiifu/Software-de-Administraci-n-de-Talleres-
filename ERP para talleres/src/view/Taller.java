@@ -17,14 +17,27 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine(); //Todos los sc.nextLine() o sc.next() serán para limpiar el bufer del scanner
-        } while (opcion !=4);
-        switch(opcion){
+            switch(opcion){
 
-            case 1 -> {
-                
+                case 1 -> {
+                    //Registrar el clinete
+                }
+                case 2 -> {
+                    //Registrar empleado
+                }
+                case 3 -> {
+                    //Registrar proveedor
+                }
+                case 4 -> {
+                    //Volver al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+    
             }
-
-        }
+        } while (opcion !=4);
+        
 
     }
     //sub Menu para servicios
@@ -38,6 +51,23 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine(); 
+            switch(opcion){
+                case 1 -> {
+                    //Crear servicio
+                }
+                case 2 -> {
+                    //Modificar servicio
+                }
+                case 3 -> {
+                    //Eliminar servicio
+                }
+                case 4 -> {
+                    //Volver al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
         } while (opcion != 4);
     }
     //sub Menu para Inventario
@@ -51,6 +81,23 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine(); 
+            switch(opcion){
+                case 1 -> {
+                    //Añadir producto
+                }
+                case 2 -> {
+                    //Modificar producto
+                }
+                case 3 -> {
+                    //Eliminar producto
+                }
+                case 4 -> {
+                    //Volver al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
         } while (opcion != 4);
     }
     //sub Menu para gestionar las facturas
@@ -63,6 +110,23 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    //Crear factura
+                }
+                case 2 -> {
+                    //Modificar factura
+                }
+                case 3 -> {
+                    //Mostrar factura específica
+                }
+                case 4 -> {
+                    //Volver al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
         } while (opcion != 4);
     }
 
@@ -76,7 +140,23 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
-
+            switch(opcion){
+                case 1 -> {
+                    //Crear cita
+                }
+                case 2 -> {
+                    //Modificar cita
+                }
+                case 3 -> {
+                    //Eliminar cita
+                }
+                case 4 -> {
+                    //Volver al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
         } while (opcion !=4);
     }
 
@@ -90,6 +170,23 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    //Asignar servicio a un empleado
+                }
+                case 2 -> {
+                    //Modificar servicio asignado a un empleado
+                }
+                case 3 -> {
+                    //Eliminar servicio asignado a un empleado
+                }
+                case 4 -> {
+                    //Volver al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
         } while (opcion != 4);
     }
     public void menuListas(){
@@ -102,7 +199,22 @@ public class Taller {
             System.out.println("5. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    //listar empleados
+                }
+                case 2 -> {
+                    //listar clientes
+                }
+                case 3 -> {
+                    //listar servicios
+                }
+                case 4 -> {
+                    //listar proveedores
+                }
+            }
         } while (opcion != 5);
+        
     }
     public void menuGestionarDatosTaller(){
         do { 
@@ -113,7 +225,19 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    //Gestionar proveedores
+                }
+                case 2 -> {
+                    //Gestionar empleados
+                }
+                case 3 -> {
+                    //Gestionar clientes
+                }
+            }
         } while (opcion != 4);
+        
     }
     public void menuContabilidad(){
         do { 
@@ -124,6 +248,19 @@ public class Taller {
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    //ver balance
+                }
+                case 2 -> {
+                    //ver ingresos
+                }
+                case 3 -> {
+                    //ver gastos
+                }
+            }
         } while (opcion != 4);
+        
     }
+    public void Asignacion
 }

@@ -24,20 +24,21 @@ public class App {
             System.out.println("10. Salir.");
             opcion = sc.nextInt();
             sc.nextLine(); //Limpiamos el bufer del scanner
+            switch(opcion){
+                case 1 -> taller.menuRegistro();
+                case 2 -> taller.menuServicios();
+                case 3 -> taller.menuInventario();
+                case 4 -> taller.menuFacturas();
+                case 5 -> taller.menuCitas();   
+                case 6 -> taller.menuAsignarServicio();
+                case 7 -> taller.menuListas();
+                case 8 -> taller.menuGestionarDatosTaller();
+                case 9 -> taller.menuContabilidad();
+                case 10 -> System.out.println("Gracias por usar nuestro ERP para talleres.");
+            } 
         } while (opcion != 10);
         
-        switch(opcion){
-            case 1 -> taller.menuRegistro();
-            case 2 -> taller.menuServicios();
-            case 3 -> taller.menuInventario();
-            case 4 -> taller.menuFacturas();
-            case 5 -> taller.menuCitas();   
-            case 6 -> taller.menuAsignarServicio();
-            case 7 -> taller.menuListas();
-            case 8 -> taller.menuGestionarDatosTaller();
-            case 9 -> taller.menuContabilidad();
-            case 10 -> System.out.println("Gracias por usar nuestro ERP para talleres.");
-        } 
+       
         sc.close();
     }
 }
