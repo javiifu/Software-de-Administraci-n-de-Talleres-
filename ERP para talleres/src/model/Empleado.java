@@ -7,12 +7,13 @@ public class Empleado {
     private String nombre;
     private String apellidos;
     private String dni;
-    private int numeroSS;
+    private String telefono;
+    private String numeroSS;
     private String cuentaBancaria;
     private boolean disponible;
     private ArrayList<Servicio> servicios;
     //Creamos un constructor para la clase empleados
-    public Empleado(String nombre, String apellidos, String dni, int numeroSS, String cuentaBancaria, boolean disponible) {
+    public Empleado(String nombre, String apellidos, String dni, String numeroSS, String cuentaBancaria, boolean disponible) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -40,10 +41,10 @@ public class Empleado {
     public void setDni(String dni) {
         this.dni = dni;
     }
-    public int getNumeroSS() {
+    public String getNumeroSS() {
         return numeroSS;
     }
-    public void setNumeroSS(int numeroSS) {
+    public void setNumeroSS(String numeroSS) {
         this.numeroSS = numeroSS;
     }
     public String getCuentaBancaria() {
@@ -63,5 +64,13 @@ public class Empleado {
     }
     public void setServicios(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
+    }
+
+    public String getTelefono() {
+        return this.telefono;
+    }
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+
     }
 }

@@ -1,5 +1,6 @@
 package view;
 import dao.ClientesDAO;
+import java.util.ArrayList;
 import java.util.Scanner;
 import model.Cliente;
 
@@ -152,14 +153,18 @@ public class ClienteView {
         }
             
         
-        
-            
-        
-
 
     }
         
+    public ArrayList<Cliente> clientesMostrar() {
+        ClientesDAO cldao = new ClientesDAO();
+
+        ArrayList<Cliente> clientes = cldao.obtenerTodos();
+
+        System.out.println("Clientes obtenidos");
         
+        return clientes;
+    }
     
 
 }

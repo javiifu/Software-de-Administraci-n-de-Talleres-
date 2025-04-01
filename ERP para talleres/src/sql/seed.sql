@@ -6,9 +6,15 @@ CREATE TABLE Empleados (
     ID INT AUTO_INCREMENT,
     DNI_Empleado VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
+<<<<<<< HEAD
     Apellidos VARCHAR(50),/* Falta por meter numero de la seguirdad social y su número de cuenta bancaria.*/
+=======
+    Apellidos VARCHAR(50),
+    FechaInscrito DATE,
+>>>>>>> origin/Marcos-KQBG
     Num_tlf INT(9), 
-    Profesion VARCHAR(50)
+    NumeroSS VARCHAR(12),
+    CuentaBanco VARCHAR(24)
 );
 
 CREATE TABLE Clientes (
@@ -66,7 +72,9 @@ CREATE TABLE Servicios (
     Servicio VARCHAR(50),
     Descripcion VARCHAR(50),
     Vehiculo VARCHAR(7),
-    FOREIGN KEY (Vehiculo) REFERENCES Vehiculos(Matricula)
+    Empleado VARCHAR(9),
+    FOREIGN KEY (Vehiculo) REFERENCES Vehiculos(Matricula),
+    FOREIGN KEY (Empleado) REFERENCES Empleados(DNI_Empleado)
 
 );
 
