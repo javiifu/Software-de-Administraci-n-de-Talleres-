@@ -6,13 +6,15 @@ public class Proveedor {
     private String direccion;
     private int telefono;
     private String email;
+    private String suministro;
     //Constructor de la clase
-    public Proveedor (String nombre, String cif, String direccion, int telefono, String email){
+    public Proveedor (String nombre, String cif, String direccion, String suministro, int telefono, String email){
         this.nombre = nombre;
         this.cif = cif;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
+        this.suministro = suministro;
     }
     //Creamos los métodos get y set para los atributos de la clase
     public String getNombre() {
@@ -44,5 +46,11 @@ public class Proveedor {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getSuministro() {
+        return suministro;
+    }
+    public void setSuministro(String suministro) {
+        this.suministro = suministro;
     }
 }
