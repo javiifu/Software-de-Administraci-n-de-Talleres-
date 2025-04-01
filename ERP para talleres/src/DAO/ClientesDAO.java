@@ -34,8 +34,8 @@ public class ClientesDAO {
                 String query = "UPDATE Clientes SET ? = ? WHERE Dni_Clientes = ?";
                 try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                     
-                    stmt.setString(1, atributo ); // Asigna el nuevo teléfono
-                    stmt.setString(2,  valor);
+                    stmt.setString(1, atributo ); // Columna que deseamos cambiar
+                    stmt.setString(2,  valor); // valor que le queremos dar
                     stmt.setString(3, dni); // Asigna el ID del cliente
                     stmt.executeUpdate(); // Ejecuta la actualización
                     

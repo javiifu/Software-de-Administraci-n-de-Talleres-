@@ -1,32 +1,44 @@
 package view;
+import dao.ClientesDAO;
 import java.util.Scanner;
-
-import model.*;
 import model.Cliente;
-import ClientesDAO;
 
 public class ClienteView {
 
     
-    private int nuevoTelefono;
-    private String nuevoNombre;
-    private String nuevoApellido;
-    private String nuevoDni;
-    private String nuevaDireccion;
-    private String nuevoEmail;
-
-    public void actualizarCliente(Cliente cliente) {
+    
+    public void actualizarCliente() {
         Scanner sc = new Scanner(System.in);
         int eleccion;
+        String respuesta;
+        String nombre = "Nombre";
+        String apellidos = "Apellidos";
+        String telefono = "Num_tlf";
+        String direccion = "Direccion";
+        String email = "Email";
+        String dni ="DNI_Cliente";
+
+        
+           
+            System.out.println("¿Qué cliente desea actualizar? Introduzca su dni: ");
+            respuesta = sc.next();
+    
+            ClientesDAO cldao = new ClientesDAO();
+    
+            Cliente cliente = cldao.buscarPorDni(respuesta);
+        
+
         do{
+
+
+
             System.out.println("¿Qué desea actualizar de su cliente?");
             System.out.println("1. Nombre");
             System.out.println("2. Apellidos");
-            System.out.println("3. Dni");
-            System.out.println("4. Direccion");
-            System.out.println("5. Telefono");
-            System.out.println("6. Email");
-            System.out.println("7. Salir");
+            System.out.println("3. Direccion");
+            System.out.println("4. Telefono");
+            System.out.println("5. Email");
+            System.out.println("6. Salir");
             System.out.println("Introduzca una opcion: ");
 
             eleccion = sc.nextInt();
@@ -34,37 +46,34 @@ public class ClienteView {
             switch(eleccion){
                 case 1 -> {
                     System.out.println("Introduzca el nombre nuevo: ");
-                    this.nuevoNombre = sc.nextLine();sc.next();
-                    cliente.setNombre(this.nuevoNombre);
-                    cliente.actualizar(Nombre, nuevoNombre, )
+                    respuesta = sc.nextLine();sc.next();
+                    cldao.actualizar(nombre, respuesta, cliente.getDni());
+                    
+                    
 
                 }
                 case 2 -> {
                     System.out.println("Introduzca los apellidos nuevos: ");
-                    this.nuevoApellido = sc.nextLine();sc.next();
-                    cliente.setApellidos(this.nuevoApellido);
+                    respuesta = sc.nextLine();sc.next();
+                    cldao.actualizar(apellidos, respuesta, cliente.getDni());
+
+                    
                 }
                 case 3 -> {
-                    System.out.println("Introduzca el dni nuevo: ");
-                    this.nuevoDni = sc.nextLine();sc.next();
-                    cliente.setDni(this.nuevoDni);
+                    System.out.println("Introduzca la direccion nueva: ");
+                    respuesta = sc.nextLine(); sc.next();
+                    cldao.actualizar(direccion, respuesta, cliente.getDni());
                     
                 }
                 case 4 -> {
-                    System.out.println("Introduzca la direccion nueva: ");
-                    this.nuevaDireccion = sc.nextLine(); sc.next();
-                    cliente.setDireccion(this.nuevaDireccion);
-                    
+                    System.out.println("Introduzca el telefono nuevo: ");
+                    respuesta = sc.nextLine(); sc.next();
+                    cldao.actualizar(telefono, respuesta, cliente.getDni());
                 }
                 case 5 -> {
-                    System.out.println("Introduzca el telefono nuevo: ");
-                    this.nuevoTelefono= sc.nextInt();
-                    cliente.setTelefono(this.nuevoTelefono);
-                }
-                case 6 -> {
                     System.out.println("Introduzca el email nuevo: ");
-                    this.nuevoEmail = sc.nextLine(); sc.next();
-                    cliente.setEmail(this.nuevoEmail);
+                    respuesta = sc.nextLine(); sc.next();
+                    cldao.actualizar(email, respuesta, cliente.getDni());
                 }
                 default -> {
                     System.out.println("Introduzca una opcion válida");
@@ -78,11 +87,6 @@ public class ClienteView {
         
     }
 
-    public String getNuevoNombre() { return nuevoNombre; }
-    public String getNuevoApellido() { return nuevoApellido; }
-    public String getNuevoDni() { return nuevoDni; }
-    public String getNuevaDireccion() { return nuevaDireccion; }
-    public String getNuevoEmail() { return nuevoEmail; }
-    public int getNuevoTelefono() { return nuevoTelefono; }
+    
 
 }
