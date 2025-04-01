@@ -55,7 +55,7 @@ public class ClientesDAO {
     
     public void eliminar(String dni) {
         Connection conexion = ConexionBD.conectar();
-        if (conexion != null) {String query = "DELETE FROM clientes WHERE id_cliente = ?";
+        if (conexion != null) {String query = "DELETE FROM clientes WHERE DNI_Cliente = ?";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {stmt.setString(1, dni); // Asigna el ID del cliente
                 stmt.executeUpdate(); // Ejecuta la eliminación
                 System.out.println("Cliente eliminado.");
@@ -81,8 +81,7 @@ public class ClientesDAO {
         
 
             try {
-                String query = "SELECT Nombre, Apellidos, Dni_Cliente, Direccion, Num_tlf, Email " + 
-                            "FROM clientes WHERE Dni_Cliente = ?";
+                String query = "SELECT Nombre, Apellidos, Dni_Cliente, Direccion, Num_tlf, Email " + "FROM Clientes WHERE Dni_Cliente = ?";
 
                 stmt = conexion.prepareStatement(query);
                 stmt.setString(1, dni.trim()); // Usamos trim() para limpiar espacios
