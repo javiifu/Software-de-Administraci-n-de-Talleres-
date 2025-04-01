@@ -2,14 +2,13 @@ package dao;
 import java.sql.*;
 import java.util.ArrayList;
 import model.Cliente;
-import view.ClienteView;
 
 public class ClientesDAO {
 
     public void insertar(Cliente cliente) {
         Connection conexion = ConexionBD.conectar();
         if (conexion != null) {
-            String query = "INSERT INTO Cliente (DNI_Cliente, Nombre, Apellidos, FechaInscrito, Num_tlf, Direccion, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Clientes (DNI_Cliente, Nombre, Apellidos, FechaInscrito, Num_tlf, Direccion, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                 stmt.setString(1, cliente.getDni()); // Asigna el valor del teléfono
                 stmt.setString(2, cliente.getNombre()); 
@@ -28,23 +27,23 @@ public class ClientesDAO {
 
     }
 
-    public void actualizar(Cliente cliente) {
+    public void actualizar(String atributo, String valor, String dni) {
         Connection conexion = ConexionBD.conectar();
-        ClienteView clienteact = new ClienteView();
         if (conexion != null) {
-            if (cliente.getTelefono() != clienteact.getNuevoTelefono()){
-                String query = "UPDATE clientes SET Num_tlf = ? WHERE DNI_Cliente = ?";
+           
+                String query = "UPDATE Clientes SET ? = ? WHERE Dni_Clientes = ?";
                 try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                     
-                    stmt.setInt(1, clienteact.getNuevoTelefono()); // Asigna el nuevo teléfono
-                    stmt.setString(2, cliente.getDni()); // Asigna el ID del cliente
+                    stmt.setString(1, atributo ); // Asigna el nuevo teléfono
+                    stmt.setString(2,  valor);
+                    stmt.setString(3, dni); // Asigna el ID del cliente
                     stmt.executeUpdate(); // Ejecuta la actualización
-                    System.out.println("Teléfono actualizado.");
+                    
                 } catch (SQLException e) {
                     System.out.println("Error al actualizar teléfono: " + e.getMessage());
                 }
 
-            } 
+            
             
             }
             System.out.println("No se ha podido conectar con la base de datos");
@@ -58,7 +57,55 @@ public class ClientesDAO {
 
     }
 
-    public Cliente buscarPorId(int id){
+    public Cliente buscarPorDni(String dni){
+        Connection conexion = ConexionBD.conectar();
+        if (conexion != null) {
+            Cliente cliente;
+            String nombre;
+            String apellidos;
+            int telefono;
+            String email;
+            String direccion;
+        
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+        
+
+            try {
+                String query = "SELECT Nombre, Apellidos, Dni_Cliente, Direccion, Num_tlf, Email " + 
+                            "FROM clientes WHERE Dni_Cliente = ?";
+
+                stmt = conexion.prepareStatement(query);
+                stmt.setString(1, dni.trim()); // Usamos trim() para limpiar espacios
+
+                rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    // Extraemos los datos del ResultSet
+                    nombre = rs.getString("Nombre");
+                    apellidos = rs.getString("Apellidos");
+                    dni = rs.getString("Dni_Cliente");
+                    direccion = rs.getString("Direccion");
+                    telefono = rs.getInt("Num_tlf");
+                    email = rs.getString("Email");
+
+                    cliente = new Cliente(nombre, apellidos, dni, direccion, telefono, email);
+                    return cliente;
+                }
+                
+
+            } catch (SQLException e) {
+                System.err.println("Error al buscar cliente por DNI: " + e.getMessage());
+                // Podrías lanzar una excepción personalizada aquí si lo prefieres
+            } finally {
+                // Cerramos recursos en orden inverso a su creación
+                try { if (rs != null) rs.close(); } catch (SQLException e) { /* ignorar */ }
+                try { if (stmt != null) stmt.close(); } catch (SQLException e) { /* ignorar */ }
+                
+            }
+
+        
+        }
         return null;
     }
 
@@ -67,7 +114,7 @@ public class ClientesDAO {
         Connection conexion = ConexionBD.conectar();
         if (conexion != null) {
             // Consulta SQL para obtener todos los Cliente
-            String query = "SELECT * FROM Cliente"; 
+            String query = "SELECT * FROM Clientes"; 
             try (Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
                 ArrayList<Cliente> clientes = new ArrayList<>();
                 Cliente cliente; 
