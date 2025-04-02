@@ -4,11 +4,11 @@ public class Proveedor {
     private String nombre;
     private String cif;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String email;
     private String suministro;
     //Constructor de la clase
-    public Proveedor (String nombre, String cif, String direccion, String suministro, int telefono, String email){
+    public Proveedor (String nombre, String cif, String direccion, String suministro, String telefono, String email){
         this.nombre = nombre;
         this.cif = cif;
         this.direccion = direccion;
@@ -35,10 +35,10 @@ public class Proveedor {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     public String getEmail() {
