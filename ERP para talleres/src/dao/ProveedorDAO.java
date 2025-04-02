@@ -92,6 +92,6 @@ public class ProveedorDAO {
                 System.out.println("Error al listar los proveedores: " + e.getMessage());
             }
         }
-        return proveedores;
+        return proveedores; //Revisar si esto tiene que ir antes del catch y aquí devolver return null
     }
 }
