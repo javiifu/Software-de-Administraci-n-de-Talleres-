@@ -7,8 +7,7 @@ public class Vehiculo {
     private String matricula;
     private String marca;
     private String modelo;
-    private String color;
-    //private String tipoCombustible; Quizá se puede poner en modelo. 
+    private String color;  
     private Cliente propietario;
     private ArrayList<Servicio> servicios;
 

@@ -19,6 +19,7 @@ public class ClientesDAO {
                 stmt.setString(7, cliente.getEmail());
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
                 System.out.println("Cliente agregado exitosamente.");
+                
             }catch (SQLException e) {
                 System.out.println("Error al agregar cliente: " + e.getMessage());
             }
