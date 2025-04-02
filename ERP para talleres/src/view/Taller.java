@@ -30,7 +30,7 @@ public class Taller {
                     //Registrar empleado
                 }
                 case 3 -> {
-                    //Registrar proveedor
+                    proveedorView.crearProveedor();
                 }
                 case 4 -> {
                     //Volver al menú principal
