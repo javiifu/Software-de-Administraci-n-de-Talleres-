@@ -13,13 +13,14 @@ public class Empleado {
     private boolean disponible = true;
     private ArrayList<Servicio> servicios;
     //Creamos un constructor para la clase empleados
-    public Empleado(String nombre, String apellidos, String dni, String numeroSS, String cuentaBancaria) {
+    public Empleado(String nombre, String apellidos, String dni, String telefono, String numeroSS, String cuentaBancaria) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.numeroSS = numeroSS;
         this.cuentaBancaria = cuentaBancaria;
         this.servicios = new ArrayList<Servicio>();
+        this.telefono = telefono;
     }
     //Creamos los métodos get y set para los atributos de la clase
     public String getNombre() {

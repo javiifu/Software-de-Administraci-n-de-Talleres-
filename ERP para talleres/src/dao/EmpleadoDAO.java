@@ -1,9 +1,6 @@
 package dao;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import model.Empleado;
 
 public class EmpleadoDAO {
@@ -23,9 +20,9 @@ public class EmpleadoDAO {
                 stmt.setString(6, empleado.getNumeroSS());
                 stmt.setString(7, empleado.getCuentaBancaria());
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
-                System.out.println("Cliente agregado exitosamente.");
+                System.out.println("Empleado agregado exitosamente.");
             }catch (SQLException e) {
-                System.out.println("Error al agregar cliente: " + e.getMessage());
+                System.out.println("Error al agregar empleado: " + e.getMessage());
             }
         }
     }
@@ -34,7 +31,7 @@ public class EmpleadoDAO {
         Connection conexion = ConexionBD.conectar();
         if (conexion != null) {
            
-                String query = "UPDATE Empleados SET ? = ? WHERE Dni_Clientes = ?";
+                String query = "UPDATE Empleados SET ? = ? WHERE DNI_Empleado = ?";
                 try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                     
                     stmt.setString(1, atributo ); // Columna que deseamos cambiar
@@ -43,7 +40,7 @@ public class EmpleadoDAO {
                     stmt.executeUpdate(); // Ejecuta la actualización
                     
                 } catch (SQLException e) {
-                    System.out.println("Error al actualizar teléfono: " + e.getMessage());
+                    System.out.println("Error al actualizar el valor: " + e.getMessage());
                 }
 
             
@@ -76,7 +73,6 @@ public class EmpleadoDAO {
             String nombre;
             String apellidos;
             String telefono;
-            String email;
             String numeroseg;
             String cuenta;
 
@@ -100,17 +96,15 @@ public class EmpleadoDAO {
                     dni = rs.getString("Dni_Cliente");
                     telefono = rs.getString("Num_tlf");
                     numeroseg = rs.getString("NumeroSS");
-                    email = rs.getString("Email");
                     cuenta = rs.getString("CuentaBanco");
 
-                    empleado = new Empleado(nombre, apellidos, dni, numeroseg, cuenta);
+                    empleado = new Empleado(nombre, apellidos, dni, telefono, numeroseg, cuenta);
                     return empleado;
                 }
                 
 
             } catch (SQLException e) {
-                System.err.println("Error al buscar cliente por DNI: " + e.getMessage());
-                // Podrías lanzar una excepción personalizada aquí si lo prefieres
+                System.err.println("Error al buscar empleado por DNI: " + e.getMessage());
             } finally {
                 // Cerramos recursos en orden inverso a su creación
                 try { if (rs != null) rs.close(); } catch (SQLException e) { /* ignorar */ }
@@ -119,6 +113,45 @@ public class EmpleadoDAO {
             }
 
         
+        }
+        return null;
+    }
+
+    public ArrayList<Empleado> obtenerTodos() {
+              // Establecer conexión
+        Connection conexion = ConexionBD.conectar();
+        if (conexion != null) {
+            // Consulta SQL para obtener todos los Empleados
+            String query = "SELECT * FROM Empleados"; 
+            try (Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+                ArrayList<Empleado> empleados = new ArrayList<>();
+                Empleado empleado; 
+                String nombre;
+                String apellidos;
+                String telefono;
+                String numeroseg;
+                String cuenta;
+                String dni;
+                
+                // Iterar sobre los resultados
+                while (rs.next()) {
+                    
+                    nombre = rs.getString("Nombre");
+                    telefono = rs.getString("Num_tlf");
+                    apellidos = rs.getString("Apellidos");
+                    dni = rs.getString("DNI_Empleado");
+                    numeroseg = rs.getString("NumeroSS");
+                    cuenta = rs.getString("CuentaBanco");
+                    empleado = new Empleado(nombre, apellidos, dni, telefono, numeroseg, cuenta);
+                    empleados.add(empleado);
+
+                }  
+
+                return empleados;
+
+            }catch (SQLException e) {
+                System.out.println("Error al realizar la consulta: " + e.getMessage());
+            }
         }
         return null;
     }

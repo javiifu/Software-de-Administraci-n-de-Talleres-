@@ -7,7 +7,7 @@ CREATE TABLE Empleados (
     DNI_Empleado VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50),/* Falta por meter numero de la seguirdad social y su número de cuenta bancaria.*/
-    Num_tlf INT(9), 
+    Num_tlf VARCHAR(15), 
     NumeroSS VARCHAR(12),
     CuentaBanco VARCHAR(24)
 );

@@ -19,7 +19,7 @@ public class ClienteView {
         String telefono = "Num_tlf";
         String direccion = "Direccion";
         String email = "Email";
-        String dni ="DNI_Cliente";
+        
 
         
         System.out.println("¿Qué cliente desea gestionar? Introduzca su dni: ");
@@ -87,7 +87,6 @@ public class ClienteView {
     public void crearCliente() {
         ClientesDAO cldao = new ClientesDAO();
         Scanner sc = new Scanner(System.in);
-        int eleccion;
         String nombre;
         String apellidos;
         String telefono;
@@ -159,11 +158,17 @@ public class ClienteView {
     public ArrayList<Cliente> clientesMostrar() {
         ClientesDAO cldao = new ClientesDAO();
 
-        ArrayList<Cliente> clientes = cldao.obtenerTodos();
-
-        System.out.println("Clientes obtenidos");
-        
-        return clientes;
+        if (cldao.obtenerTodos() != null) {
+            ArrayList<Cliente> clientes = cldao.obtenerTodos();
+    
+            System.out.println("Clientes obtenidos");
+            
+            return clientes;
+            
+        }else {
+            System.out.println("¿Otra vez intentando conseguir cosas que no existen?");
+            return null;
+        }
     }
     
 
