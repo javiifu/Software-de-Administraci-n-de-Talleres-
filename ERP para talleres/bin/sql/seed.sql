@@ -18,7 +18,7 @@ CREATE TABLE Clientes (
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50), /*Falta por poner email y dirección, para poder guardarlos. */
     FechaInscrito DATE,
-    Num_tlf VARCHAR(15),
+    Num_tlf INT(9), 
     Direccion VARCHAR(50),
     Email VARCHAR(100)
 );
@@ -39,6 +39,7 @@ CREATE TABLE Proveedores (
     Nombre VARCHAR(50),
     Tipo VARCHAR(50),
     Direccion VARCHAR(50),
+    Num_tlf VARCHAR(15),
     CorreoElectronico VARCHAR(100)
     
 );

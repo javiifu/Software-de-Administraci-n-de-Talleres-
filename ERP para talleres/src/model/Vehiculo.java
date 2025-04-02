@@ -7,13 +7,14 @@ public class Vehiculo {
     private String matricula;
     private String marca;
     private String modelo;
-    private String color;  
-    private Cliente propietario;
+    private String color;
+    //private String tipoCombustible; Quizá se puede poner en modelo. 
+    private String propietario;
     private ArrayList<Servicio> servicios;
 
     //Constructor de la clase vehículos
 
-    public Vehiculo(String matricula, String marca, String modelo, String color, Cliente propietario) {
+    public Vehiculo(String matricula, String marca, String modelo, String color, String propietario) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -55,10 +56,10 @@ public class Vehiculo {
     public void setTipoCombustible(String tipoCombustible) {
         this.tipoCombustible = tipoCombustible;
     }*/
-    public Cliente getPropietario() {
+    public String getPropietario() {
         return propietario;
     }
-    public void setPropietario(Cliente propietario) {
+    public void setPropietario(String propietario) {
         this.propietario = propietario;
     }
 }

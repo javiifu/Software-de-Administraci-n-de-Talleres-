@@ -4,7 +4,6 @@ import model.Empleado; // Replace 'my.package' with the actual package name of V
 
 public class Asignacion {
     //Atributos de la clase asignación
-    Empleado empleado = new Empleado( );
-    Vehiculo vehiculo = new Vehiculo();
+    
 
 }

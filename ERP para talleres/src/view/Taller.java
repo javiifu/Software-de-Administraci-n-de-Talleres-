@@ -7,6 +7,7 @@ public class Taller {
     //Atributos clase Taller
     Scanner sc = new Scanner(System.in);
     ClienteView clienteView = new ClienteView();
+    ProveedorVew proveedorView = new ProveedorVew();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -29,7 +30,7 @@ public class Taller {
                     //Registrar empleado
                 }
                 case 3 -> {
-                    //Registrar proveedor
+                    proveedorView.crearProveedor();
                 }
                 case 4 -> {
                     //Volver al menú principal
@@ -207,13 +208,13 @@ public class Taller {
                     //listar empleados
                 }
                 case 2 -> {
-                    //listar clientes
+                    clienteView.clientesMostrar();
                 }
                 case 3 -> {
                     //listar servicios
                 }
                 case 4 -> {
-                    //listar proveedores
+                    proveedorView.listarProveedores();
                 }
             }
         } while (opcion != 5);
@@ -230,7 +231,7 @@ public class Taller {
             sc.nextLine();
             switch(opcion){
                 case 1 -> {
-                    //Gestionar proveedores
+                    subMenuGestionProveedor();
                 }
                 case 2 -> {
                     //Gestionar empleados
@@ -281,6 +282,27 @@ public class Taller {
                     clienteView.eliminarCliente();
                 }
                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        } while (opcion != 3);
+    }
+    public void subMenuGestionProveedor(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Modificar Proveedor datos de proveedor.");
+            System.out.println("2. Eliminar Proveedor.");
+            System.out.println("3. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    proveedorView.gestionarProveedores();
+                }
+                case 2 -> {
+                    proveedorView.eliminarProveedor();
+                }
+                default -> {
                     System.out.println("Opción no válida. Por favor, elija una opción válida.");
                 }
             }
