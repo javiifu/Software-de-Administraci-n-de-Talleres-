@@ -56,9 +56,13 @@ CREATE TABLE Inventario (
 CREATE TABLE Pedidos (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Producto VARCHAR(50),
+    Fecha Pedido DATE CURRENT_TIMESTAMP,/* Lo ponemos con timestamp para que aparezca fecha y hora */
+    FechaEntrega DATE,
+    Estado BOOLEAN DEFAULT FALSE,
     Cantidad INT(10),
     Proveedor VARCHAR(9),
-    CosteUnidad DOUBLE(6,2),
+    CosteUnidad DECIMAL(6,2),
+    total DECIMAL (6,2) GENERATED ALWAYS AS (Cantidad * CosteUnidad) STORED,
     FOREIGN KEY (Proveedor) REFERENCES Proveedores(NIF)
 
 
