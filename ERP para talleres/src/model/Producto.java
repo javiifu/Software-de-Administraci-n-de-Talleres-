@@ -5,5 +5,6 @@ public class Producto {
     private int precio;
     private Proveedor proveedor;
     
+    
 
 }

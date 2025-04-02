@@ -7,14 +7,9 @@ public class Vehiculo {
     private String matricula;
     private String marca;
     private String modelo;
-<<<<<<< HEAD
     private String color;
     //private String tipoCombustible; Quizá se puede poner en modelo. 
     private String propietario;
-=======
-    private String color;  
-    private Cliente propietario;
->>>>>>> origin/Marcos-KQBG
     private ArrayList<Servicio> servicios;
 
     //Constructor de la clase vehículos
