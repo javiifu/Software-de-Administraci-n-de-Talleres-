@@ -28,6 +28,7 @@ CREATE TABLE Vehiculos (
     Matricula VARCHAR(7) PRIMARY KEY,  /*tipo de combustibel lo podemos poner igual en modelo*/
     Marca VARCHAR(50),
     Modelo VARCHAR(50),
+    Color VARCHAR(50),
     Cliente VARCHAR(9),
     FOREIGN KEY (Cliente) REFERENCES Clientes(DNI_Cliente)
 
@@ -65,6 +66,7 @@ CREATE TABLE Pedidos (
 CREATE TABLE Servicios (
     ID_Servicio INT AUTO_INCREMENT PRIMARY KEY,
     Servicio VARCHAR(50),
+    Fecha DATE,
     Descripcion VARCHAR(50),
     Vehiculo VARCHAR(7),
     Empleado VARCHAR(9),

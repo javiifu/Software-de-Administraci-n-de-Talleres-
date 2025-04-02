@@ -55,10 +55,10 @@ public class EmpleadoDAO {
 
     public void eliminar(String dni) {
         Connection conexion = ConexionBD.conectar();
-        if (conexion != null) {String query = "DELETE FROM Empleados WHERE DNI_Cliente = ?";
-            try (PreparedStatement stmt = conexion.prepareStatement(query)) {stmt.setString(1, dni); // Asigna el ID del cliente
+        if (conexion != null) {String query = "DELETE FROM Empleados WHERE DNI_Empleado = ?";
+            try (PreparedStatement stmt = conexion.prepareStatement(query)) {stmt.setString(1, dni); // Asigna el ID del empleado
                 stmt.executeUpdate(); // Ejecuta la eliminación
-                System.out.println("Cliente eliminado.");
+                System.out.println("Empleado eliminado.");
             } catch (SQLException e) {
                 System.out.println("Error al eliminar cliente: " + e.getMessage());
             }
@@ -82,7 +82,7 @@ public class EmpleadoDAO {
         
 
             try {
-                String query = "SELECT Nombre, Apellidos, Dni_Cliente, Num_tlf, NumeroSS, CuentaBanco " + "FROM Empleados WHERE Dni_Cliente = ?";
+                String query = "SELECT Nombre, Apellidos, Dni_Cliente, Num_tlf, NumeroSS, CuentaBanco " + "FROM Empleados WHERE Dni_Empleado = ?";
 
                 stmt = conexion.prepareStatement(query);
                 stmt.setString(1, dni.trim()); // Usamos trim() para limpiar espacios
