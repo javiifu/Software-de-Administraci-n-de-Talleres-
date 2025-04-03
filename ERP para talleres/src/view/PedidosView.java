@@ -144,6 +144,6 @@ public class PedidosView {
         fechaRecepcion = sc.nextLine();
         sc.next();
 
-        
+        Pedido pedido = new Pedido(cantidad, numPedido, proveedor, costeUnidad, cantidad, producto, estado, fechaEntrega, fechaRecepcion)
     }
 }
