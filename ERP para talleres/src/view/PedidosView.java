@@ -3,6 +3,10 @@ import dao.PedidoDAO;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.Pedido;
+import model.Proveedor;
+import model.Producto;
+import java.time.LocalDate; //importamos esta biblioteca para que cuando se cree el pedido se introduzca la fecha acutal en la que se realiza. 
+
 public class PedidosView {
     PedidoDAO peddao = new PedidoDAO();
     Scanner sc = new Scanner(System.in);
@@ -103,5 +107,43 @@ public class PedidosView {
                 }
             }
         }while (eleccion != 9);
+    }
+    public void crearPedido(){
+        PedidoDAO peddao = new PedidoDAO();   
+        String numPedido;
+        LocalDate fechaPedido = LocalDate.now();  //utilizamos la siguiente funcion para poder realizar un pedido con la fecha actual.
+        Proveedor proveedor = null;
+        int costeUnidad;
+        int cantidad;
+        Producto producto = null;
+        Boolean estado = false; 
+        String fechaEntrega;
+        String fechaRecepcion;
+        
+        System.out.println("Introduzca los datos de su pedido");
+        System.out.println("Número de pedido: ");
+        numPedido = sc.nextLine();
+        sc.next();
+
+        System.out.println("Introduzca el nombre del producto del que quiere realizar el pedido");
+        producto = sc.next();
+
+
+        System.out.println("Introduzca la cantidad del producto: ");
+        cantidad = sc.nextInt();
+        sc.next();
+        System.out.println("Introduzca el precio por unidad del prodcuto: ");
+        costeUnidad = sc.nextInt();
+        sc.next();
+
+        System.out.println("Introduzca fecha de entrega (en este formato yyyy-mm-dd): ");
+        fechaEntrega = sc.nextLine();
+        sc.next();
+
+        System.out.println("Introduzca fecha de Recepción (en este formato yyyy-mm-dd): ");
+        fechaRecepcion = sc.nextLine();
+        sc.next();
+
+        
     }
 }
