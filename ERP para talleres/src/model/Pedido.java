@@ -8,7 +8,7 @@ public class Pedido {
     private int cantidad;
     private Producto producto;
     private Boolean estado;
-    private String fechaEntrega
+    private String fechaEntrega;
     private String fechaRecepcion;
 
     //Constructor 
