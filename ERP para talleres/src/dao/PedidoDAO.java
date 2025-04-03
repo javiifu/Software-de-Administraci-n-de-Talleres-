@@ -6,10 +6,10 @@ public class PedidoDAO {
     public void insertarPedido(Pedido Pedido){
         Connection conexion = ConexionBD.conectar();
         if(conexion != null){
-            String query = "INSERT INTO Pedidos (ID_Pedido, ID_Cliente, ID_Producto, Fecha_Pedido, Cantidad) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Pedidos (ID_Pedido, Producto, FechaPedido, FechaEntrega, Estado, Cantidad, Proveedor, CosteUnidad, Total) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
-                stmt.setString(1, Pedido.getIdPedido());
-                stmt.setString(2, Pedido.getIdCliente());
+                stmt.setInt(1, Pedido.getNumeroPedido());
+                stmt.setString(2, Pedido.getProducto());
                 stmt.setString(3, Pedido.getIdProducto());
                 stmt.setDate(4, java.sql.Date.valueOf(Pedido.getFechaPedido()));
                 stmt.setInt(5, Pedido.getCantidad());
