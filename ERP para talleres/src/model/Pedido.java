@@ -4,7 +4,7 @@ public class Pedido {
     private int numeroPedido;
     private String fechaPedido;
     private Proveedor proveedor;
-    private int importe;
+    private int costeUnidad;
     private int cantidad;
     private Producto producto;
     private Boolean estado;
@@ -12,11 +12,11 @@ public class Pedido {
     private String fechaRecepcion;
 
     //Constructor 
-    public Pedido(int numeroPedido, String fechaPedido, Proveedor proveedor, int importe, int cantidad, Producto producto, Boolean estado, String fechaEntrega, String fechaRecepcion) {
+    public Pedido(int numeroPedido, String fechaPedido, Proveedor proveedor, int costeUnidad, int cantidad, Producto producto, Boolean estado, String fechaEntrega, String fechaRecepcion) {
         this.numeroPedido = numeroPedido;
         this.fechaPedido = fechaPedido;
         this.proveedor = proveedor;
-        this.importe = importe;
+        this.costeUnidad = costeUnidad;
         this.cantidad = cantidad;
         this.producto = producto;
         this.estado = estado;
@@ -42,11 +42,11 @@ public class Pedido {
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
-    public int getImporte() {
-        return importe;
+    public int getCosteUnidad() {
+        return costeUnidad;
     }
-    public void setImporte(int importe) {
-        this.importe = importe;
+    public void setCosteUnidad(int costeUnidad) {
+        this.costeUnidad = costeUnidad;
     }
     public int getCantidad() {
         return cantidad;
@@ -78,5 +78,9 @@ public class Pedido {
     public void setFechaRecepcion(String fechaRecepcion) {
         this.fechaRecepcion = fechaRecepcion;
     }
+    public double getTotal() {
+        return costeUnidad * cantidad;
+    }
+    
 
 }
