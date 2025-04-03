@@ -308,4 +308,15 @@ public class Taller {
             }
         } while (opcion != 3);
     }
+
+    public void MenuPedidos(){
+        do{
+            System.out.println("¿Que desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Registrar nuevo pedido.");
+            System.out.println("2. Actualizar algún pedido");
+            System.out.println("3. Eliminar Pedido.");
+            System.out.println("4. Volver al menú Principal");
+            opcion = sc.nextInt
+        }
+    }
 }
