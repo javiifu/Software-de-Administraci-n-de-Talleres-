@@ -3,7 +3,7 @@ CREATE DATABASE TALLER;
 USE Taller;
 
 CREATE TABLE Empleados (
-    ID INT AUTO_INCREMENT,
+    ID_Empleado INT AUTO_INCREMENT,
     DNI_Empleado VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50),/* Falta por meter numero de la seguirdad social y su número de cuenta bancaria.*/
@@ -13,7 +13,7 @@ CREATE TABLE Empleados (
 );
 
 CREATE TABLE Clientes (
-    ID INT AUTO_INCREMENT,
+    ID_Socio INT AUTO_INCREMENT,
     DNI_Cliente VARCHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     Apellidos VARCHAR(50), /*Falta por poner email y dirección, para poder guardarlos. */
@@ -24,7 +24,7 @@ CREATE TABLE Clientes (
 );
 
 CREATE TABLE Vehiculos (
-    ID INT AUTO_INCREMENT,
+    ID_Vehiculo INT AUTO_INCREMENT,
     Matricula VARCHAR(7) PRIMARY KEY,  /*tipo de combustibel lo podemos poner igual en modelo*/
     Marca VARCHAR(50),
     Modelo VARCHAR(50),
@@ -45,7 +45,7 @@ CREATE TABLE Proveedores (
 );
 
 CREATE TABLE Inventario (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Producto INT AUTO_INCREMENT PRIMARY KEY,
     Cantidad INT(10),
     Nombre VARCHAR(50),
     Proveedor VARCHAR(50),
@@ -54,7 +54,7 @@ CREATE TABLE Inventario (
 
 
 CREATE TABLE Pedidos (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Pedido INT AUTO_INCREMENT PRIMARY KEY,
     Producto VARCHAR(50),
     Fecha Pedido DATE CURRENT_TIMESTAMP,/* Lo ponemos con timestamp para que aparezca fecha y hora */
     FechaEntrega DATE,
@@ -62,10 +62,8 @@ CREATE TABLE Pedidos (
     Cantidad INT(10),
     Proveedor VARCHAR(9),
     CosteUnidad DECIMAL(6,2),
-    total DECIMAL (6,2) GENERATED ALWAYS AS (Cantidad * CosteUnidad) STORED,
+    total DECIMAL (6,2) GENERATED ALWAYS AS (Cantidad * CosteUnidad) STORED, /* Columna generada. Le he preguntado a Saul y me deja hacerlo. */
     FOREIGN KEY (Proveedor) REFERENCES Proveedores(NIF)
-
-
 );
 
 CREATE TABLE Servicios (
