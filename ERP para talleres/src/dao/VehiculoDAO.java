@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.Cliente;
 import model.Vehiculo;
 
 
@@ -71,14 +70,14 @@ public class VehiculoDAO {
 
     }
 
-    public Vehiculo buscarPorMatricula(String matricula, Cliente propietario){
+    public Vehiculo buscarPorMatricula(String matricula){
         Connection conexion = ConexionBD.conectar();
         if (conexion != null) {
             Vehiculo vehiculo;
             String marca;
             String modelo;
             String color;
-            String dni = propietario.getdni();
+            String propietario;
         
             PreparedStatement stmt = null;
             ResultSet rs = null;
@@ -88,7 +87,7 @@ public class VehiculoDAO {
                 String query = "SELECT Matricula, Marca, Modelo, Color, Cliente " + "FROM Vehiculos WHERE Matricula = ?";
 
                 stmt = conexion.prepareStatement(query);
-                stmt.setString(1, dni.trim()); // Usamos trim() para limpiar espacios
+                stmt.setString(1, matricula.trim()); // Usamos trim() para limpiar espacios
 
                 rs = stmt.executeQuery();
 
@@ -98,10 +97,10 @@ public class VehiculoDAO {
                     marca = rs.getString("Marca");
                     modelo = rs.getString("Modelo");
                     color = rs.getString("Color");
-                    dni = rs.getString("Cliente");
+                    propietario = rs.getString("Cliente");
                     
 
-                    vehiculo = new Vehiculo(matricula, marca, modelo, color, dni);
+                    vehiculo = new Vehiculo(matricula, marca, modelo, color, propietario);
                     return vehiculo;
                 }
                 
@@ -114,8 +113,6 @@ public class VehiculoDAO {
                 try { if (stmt != null) stmt.close(); } catch (SQLException e) { /* ignorar */ }
                 
             }
-
-        
         }
         return null;
     }

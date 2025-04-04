@@ -4,11 +4,63 @@ import dao.VehiculoDAO;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import model.Vehiculo;
 
 
 public class VehiculoView {
 
+    public void gestionarVehiculo() {
 
+        VehiculoDAO vdao = new VehiculoDAO();
+        Scanner sc = new Scanner(System.in);
+        int eleccion;
+        String respuesta;
+        String matricula = "Matricula";
+        String marca = "Marca";
+        String modelo = "Modelo";
+        String color = "Color";
+        String propietario = "Cliente";
+        
+
+        
+        System.out.println("¿Qué vehiculo desea gestionar? Introduzca su matricula: ");
+        respuesta = sc.next();
+        Vehiculo vehiculo = vdao.buscarPorMatricula(respuesta);
+        
+        
+        do{       
+
+            System.out.println("¿Qué desea gestionar de su vehiculo?");
+            System.out.println("1. Color");
+            System.out.println("2. Propietario(DNI)");
+            System.out.println("3. Salir");
+            System.out.println("Introduzca una opcion: ");
+
+            eleccion = sc.nextInt();
+
+            switch(eleccion){
+                case 1 -> {
+                    System.out.println("Introduzca el color nuevo: ");
+                    respuesta = sc.nextLine(); sc.next();
+                    vdao.actualizar(color, respuesta, vehiculo.getMatricula());
+                    
+                }
+                case 2 -> {
+                    System.out.println("Introduzca el nuevo propietario(formato DNI): ");
+                    respuesta = sc.nextLine(); sc.next();
+                    vdao.actualizar(propietario, respuesta, vehiculo.getMatricula());
+                }
+                default -> {
+                    System.out.println("Introduzca una opcion válida");
+                }
+            }
+    
+            
+
+        }while(eleccion != 5);
+
+        
+    }
     
     public void buscarCliente() {
         VehiculoDAO vdao = new VehiculoDAO();
