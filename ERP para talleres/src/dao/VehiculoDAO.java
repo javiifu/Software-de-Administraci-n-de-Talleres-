@@ -168,5 +168,44 @@ public class VehiculoDAO {
     }
     return resultado;
 }
+
+    public ArrayList<Vehiculo> obtenerTodos() {
+
+                 // Establecer conexión
+        Connection conexion = ConexionBD.conectar();
+        if (conexion != null) {
+            // Consulta SQL para obtener todos los Empleados
+            String query = "SELECT * FROM Vehiculos"; 
+            try (Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+                ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+                Vehiculo vehiculo; 
+                String matricula;
+                String marca;
+                String modelo;
+                String color;
+                String propietario;
+                
+                // Iterar sobre los resultados
+                while (rs.next()) {
+                    
+                    matricula = rs.getString("Matricula");
+                    marca = rs.getString("Marca");
+                    modelo = rs.getString("Modelo");
+                    color = rs.getString("Color");
+                    propietario = rs.getString("Cliente");
+                    vehiculo = new Vehiculo(matricula, marca, modelo, color, propietario);
+                    vehiculos.add(vehiculo);
+
+                }  
+
+                return vehiculos;
+
+            }catch (SQLException e) {
+                System.out.println("Error al realizar la consulta: " + e.getMessage());
+            }
+        }
+        return null;
+
+    }
 }
 

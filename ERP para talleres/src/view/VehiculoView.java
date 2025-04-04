@@ -1,5 +1,6 @@
 package view;
 
+import dao.EmpleadoDAO;
 import dao.VehiculoDAO;
 import java.util.List;
 import java.util.Map;
@@ -93,6 +94,41 @@ public class VehiculoView {
 
         Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, color, propietario);
         vdao.insertar(vehiculo);
+    }
+
+    public void eliminarVehiculo() {
+
+        Scanner sc = new Scanner(System.in);
+        VehiculoDAO vdao = new VehiculoDAO();
+        String respuesta;
+        boolean control = false;
+
+        if (vdao.obtenerTodos() != null) {
+
+            do{
+                System.out.println("¿Qué empleado desea eliminar?");
+                System.out.println("Introduzca su Dni: ");
+                respuesta = sc.nextLine();sc.next();
+            
+                
+                if ( emdao.buscarPorDni(respuesta) != null) {
+        
+                    emdao.eliminar(respuesta);
+                    System.out.println("Empleado eliminado con exito");
+                    control = true;
+                } else {
+                    System.out.println("El DNI que ha introducido no esta relacionado con ningun empleado existente");
+                    
+                }
+    
+            }while(!control);
+
+        } else {
+            System.out.println("Si no hay empleados como vas a borrarlos, iluminado");
+        }
+            
+        
+
     }
 
     public void buscarCliente() {
