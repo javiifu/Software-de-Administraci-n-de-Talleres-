@@ -9,6 +9,7 @@ public class Taller {
     ClienteView clienteView = new ClienteView();
     ProveedorVew proveedorView = new ProveedorVew();
     PedidosView pedidosView = new PedidosView();
+    EmpleadoView empleadoView = new EmpleadoView();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -28,7 +29,7 @@ public class Taller {
                     clienteView.crearCliente();
                 }
                 case 2 -> {
-                    //Registrar empleado
+                    empleadoView.crearEmpleado();
                 }
                 case 3 -> {
                     proveedorView.crearProveedor();
@@ -207,7 +208,7 @@ public class Taller {
             sc.nextLine();
             switch(opcion){
                 case 1 -> {
-                    //listar empleados
+                    empleadoView.empleadosMostrar();
                 }
                 case 2 -> {
                     clienteView.clientesMostrar();
@@ -239,7 +240,7 @@ public class Taller {
                     subMenuGestionProveedor();
                 }
                 case 2 -> {
-                    //Gestionar empleados
+                    empleadoView.gestionarEmpleado();
                 }
                 case 3 -> {
                     subMenuGestionCliente();

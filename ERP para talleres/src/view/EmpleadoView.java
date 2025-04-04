@@ -94,8 +94,8 @@ public class EmpleadoView {
         String dni;
         
 
-        System.out.println("Bienvenido a la creacion de clientes");
-        System.out.println("Introduzca los valores de su cliente: ");
+        System.out.println("Bienvenido a la creacion de empleados");
+        System.out.println("Introduzca los valores de su empleado: ");
 
         System.out.println("Dni");
         dni = sc.nextLine();sc.next();
@@ -165,7 +165,7 @@ public class EmpleadoView {
 
             }
     
-            System.out.println("Clientes obtenidos");
+            System.out.println("Empleados obtenidos");
             
             
         } else {

@@ -24,12 +24,7 @@ public class Producto {
     public void setStock(int stock) {
         this.stock = stock;
     }
-    public int getPrecio() {
-        return precio;
-    }
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
+    
     public Proveedor getProveedor() {
         return proveedor;
     }
