@@ -62,6 +62,39 @@ public class VehiculoView {
         
     }
     
+    public void crearVehiculo() {
+        VehiculoDAO vdao = new VehiculoDAO();
+        Scanner sc = new Scanner(System.in);
+        String matricula;
+        String marca;
+        String modelo;
+        String color;
+        String propietario;
+        
+        
+
+        System.out.println("Bienvenido al menú de agregación de vehículos");
+        System.out.println("Introduzca los valores del vehículo: ");
+
+        System.out.println("Matricula");
+        matricula = sc.nextLine();sc.next();
+
+        System.out.println("Marca");
+        marca = sc.nextLine();sc.next();
+
+        System.out.println("Modelo");
+        modelo = sc.nextLine();sc.next();
+
+        System.out.println("Color");
+        color = sc.nextLine();sc.next();
+
+        System.out.println("Propietario (Formato DNI)");
+        propietario = sc.nextLine();sc.next();
+
+        Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, color, propietario);
+        vdao.insertar(vehiculo);
+    }
+
     public void buscarCliente() {
         VehiculoDAO vdao = new VehiculoDAO();
         try (Scanner sc = new Scanner(System.in)) {
