@@ -174,6 +174,18 @@ public class PedidosView {
 
         if (peddao.obtenerPedidos() != null) {
             ArrayList<Pedido> listaPedidos = peddao.obtenerPedidos();
+            for (Pedido pedido : listaPedidos) {
+                System.out.println("Número de pedido: " + pedido.getNumeroPedido());
+                System.out.println("Fecha del pedido: " + pedido.getFechaPedido());
+                System.out.println("Proveedor: " + pedido.getProveedor().getNombre());
+                System.out.println("Coste unidad: " + pedido.getCosteUnidad());
+                System.out.println("Cantidad: " + pedido.getCantidad());
+                System.out.println("Producto: " + pedido.getProducto().getNombre());
+                System.out.println("Estado: " + pedido.getEstado());
+                System.out.println("Fecha de entrega: " + pedido.getFechaEntrega());
+                System.out.println("Fecha de recepción: " + pedido.getFechaRecepcion());
+                System.out.println("------------------------------");
+            }
             return listaPedidos;
         } else {
             System.out.println("No hay pedidos disponibles.");

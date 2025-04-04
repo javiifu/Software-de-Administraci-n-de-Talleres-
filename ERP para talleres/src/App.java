@@ -29,13 +29,14 @@ public class App {
                 case 1 -> taller.menuRegistro();
                 case 2 -> taller.menuServicios();
                 case 3 -> taller.menuInventario();
-                case 4 -> taller.menuFacturas();
-                case 5 -> taller.menuCitas();   
-                case 6 -> taller.menuAsignarServicio();
-                case 7 -> taller.menuListas();
-                case 8 -> taller.menuGestionarDatosTaller();
-                case 9 -> taller.menuContabilidad();
-                case 10 -> System.out.println("Gracias por usar nuestro ERP para talleres.");
+                case 4 -> taller.MenuPedidos();
+                case 5 -> taller.menuFacturas();
+                case 6 -> taller.menuCitas();   
+                case 7 -> taller.menuAsignarServicio();
+                case 8 -> taller.menuListas();
+                case 9 -> taller.menuGestionarDatosTaller();
+                case 10 -> taller.menuContabilidad();
+                case 11 -> System.out.println("Gracias por usar nuestro ERP para talleres.");
             } 
         } while (opcion != 10);
         

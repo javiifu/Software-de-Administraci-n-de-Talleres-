@@ -5,10 +5,9 @@ public class Producto {
     private Proveedor proveedor;
     
     //constructor
-    public Producto(String nombre, int stock, int precio, Proveedor proveedor) {
+    public Producto(String nombre, int stock, Proveedor proveedor) {
         this.nombre = nombre;
         this.stock = stock;
-        this.precio = precio;
         this.proveedor = proveedor;
     }
     //getters y setters

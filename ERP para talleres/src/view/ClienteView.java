@@ -160,7 +160,9 @@ public class ClienteView {
 
         if (cldao.obtenerTodos() != null) {
             ArrayList<Cliente> clientes = cldao.obtenerTodos();
-    
+            for (Cliente cliente : clientes) {
+                System.out.println(cliente);
+            }
             System.out.println("Clientes obtenidos");
             
             return clientes;
