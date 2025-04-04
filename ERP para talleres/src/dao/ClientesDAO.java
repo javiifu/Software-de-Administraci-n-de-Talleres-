@@ -19,6 +19,7 @@ public class ClientesDAO {
                 stmt.setString(7, cliente.getEmail());
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
                 System.out.println("Cliente agregado exitosamente.");
+                
             }catch (SQLException e) {
                 System.out.println("Error al agregar cliente: " + e.getMessage());
             }
@@ -139,7 +140,7 @@ public class ClientesDAO {
                     nombre = rs.getString("Nombre");
                     telefono = rs.getString("Num_tlf");
                     apellidos = rs.getString("Apellidos");
-                    dni = rs.getString("Dni_Cliente");
+                    dni = rs.getString("DNI_Cliente");
                     direccion = rs.getString("Direccion");
                     email = rs.getString("Email");
                     cliente = new Cliente(nombre, apellidos, dni, direccion, telefono, email );

@@ -7,6 +7,9 @@ public class Taller {
     //Atributos clase Taller
     Scanner sc = new Scanner(System.in);
     ClienteView clienteView = new ClienteView();
+    ProveedorVew proveedorView = new ProveedorVew();
+    PedidosView pedidosView = new PedidosView();
+    EmpleadoView empleadoView = new EmpleadoView();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -26,10 +29,10 @@ public class Taller {
                     clienteView.crearCliente();
                 }
                 case 2 -> {
-                    //Registrar empleado
+                    empleadoView.crearEmpleado();
                 }
                 case 3 -> {
-                    //Registrar proveedor
+                    proveedorView.crearProveedor();
                 }
                 case 4 -> {
                     //Volver al menú principal
@@ -199,21 +202,25 @@ public class Taller {
             System.out.println("2. Listar Cliente.");
             System.out.println("3. Listar Servicios.");
             System.out.println("4. Listar Proveedores.");
-            System.out.println("5. Volver al menú principal.");
+            System.out.println("5. Listar Pedidos.");
+            System.out.println("6. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
                 case 1 -> {
-                    //listar empleados
+                    empleadoView.empleadosMostrar();
                 }
                 case 2 -> {
-                    //listar clientes
+                    clienteView.clientesMostrar();
                 }
                 case 3 -> {
                     //listar servicios
                 }
                 case 4 -> {
-                    //listar proveedores
+                    proveedorView.listarProveedores();
+                }
+                case 5 -> {
+                    pedidosView.listarPedidos();
                 }
             }
         } while (opcion != 5);
@@ -230,10 +237,10 @@ public class Taller {
             sc.nextLine();
             switch(opcion){
                 case 1 -> {
-                    //Gestionar proveedores
+                    subMenuGestionProveedor();
                 }
                 case 2 -> {
-                    //Gestionar empleados
+                    empleadoView.gestionarEmpleado();
                 }
                 case 3 -> {
                     subMenuGestionCliente();
@@ -285,5 +292,55 @@ public class Taller {
                 }
             }
         } while (opcion != 3);
+    }
+    public void subMenuGestionProveedor(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Modificar Proveedor datos de proveedor.");
+            System.out.println("2. Eliminar Proveedor.");
+            System.out.println("3. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    proveedorView.gestionarProveedores();
+                }
+                case 2 -> {
+                    proveedorView.eliminarProveedor();
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        } while (opcion != 3);
+    }
+
+    public void MenuPedidos(){
+        do{
+            System.out.println("¿Que desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Registrar nuevo pedido.");
+            System.out.println("2. Actualizar algún pedido");
+            System.out.println("3. Eliminar Pedido.");
+            System.out.println("4. Volver al menú Principal");
+            opcion = sc.nextInt();
+            sc.next();
+            switch(opcion){
+                case 1 -> {
+                    pedidosView.crearPedido();
+                }
+                case 2 -> {
+                    pedidosView.gestionarPedido();
+                }
+                case 3 -> {
+                    pedidosView.eliminarPedido();
+                }
+                case 4 -> {
+                    //Volvemos al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        }while (opcion != 4);
     }
 }
