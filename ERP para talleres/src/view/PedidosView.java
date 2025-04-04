@@ -112,10 +112,10 @@ public class PedidosView {
         PedidoDAO peddao = new PedidoDAO();   
         String numPedido;
         LocalDate fechaPedido = LocalDate.now();  //utilizamos la siguiente funcion para poder realizar un pedido con la fecha actual.
-        Proveedor proveedor = null;
-        int costeUnidad;
+        String nombreProveedor;
         int cantidad;
-        Producto producto = null;
+        int costeUnidad;
+        String nombreProducto;
         Boolean estado = false; 
         String fechaEntrega;
         String fechaRecepcion;
@@ -126,14 +126,18 @@ public class PedidosView {
         sc.next();
 
         System.out.println("Introduzca el nombre del producto del que quiere realizar el pedido");
-        producto = sc.next();
-
+        nombreProducto = sc.nextLine();
+        sc.next();
 
         System.out.println("Introduzca la cantidad del producto: ");
         cantidad = sc.nextInt();
         sc.next();
         System.out.println("Introduzca el precio por unidad del prodcuto: ");
         costeUnidad = sc.nextInt();
+        sc.next();
+
+        System.out.println("Introduzca el nombre del proveedor: ");
+        nombreProveedor = sc.nextLine();
         sc.next();
 
         System.out.println("Introduzca fecha de entrega (en este formato yyyy-mm-dd): ");
@@ -144,6 +148,13 @@ public class PedidosView {
         fechaRecepcion = sc.nextLine();
         sc.next();
 
-        Pedido pedido = new Pedido(cantidad, numPedido, proveedor, costeUnidad, cantidad, producto, estado, fechaEntrega, fechaRecepcion)
+        Proveedor proveedor = new Proveedor(nombreProveedor, null, null, nombreProducto, null, null);
+        Producto producto = new Producto(nombreProducto, cantidad, costeUnidad, proveedor);
+
+        Pedido pedido = new Pedido(cantidad, numPedido, proveedor, costeUnidad, cantidad, producto, estado, fechaEntrega, fechaRecepcion);
+
+        peddao.insertarPedido(pedido);
+        System.out.println("Pedido creado correctamente");
+        
     }
 }

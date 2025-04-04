@@ -104,7 +104,7 @@ public class PedidoDAO {
                     String fechaEntrega = rs.getString("FechaEntrega");
                     String fechaRecepcion = null; // Si no está en la tabla, se pone como null
                     String proveedorNIF = rs.getString("Proveedor");
-                    int costeUnidad = rs.getInt("CosteUnidad"); // solo si necesitas reconstruirlo
+                    int costeUnidad = rs.getInt("CosteUnidad"); 
                     int importe = rs.getInt("Total"); 
 
                     // Construir los objetos asociados
