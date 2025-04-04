@@ -96,7 +96,7 @@ public class ClienteView {
         
 
         System.out.println("Bienvenido a la creacion de clientes");
-        System.out.println("Introduzca los valores de su cliente: ");
+        System.out.println("Introduzca los datos de su cliente: ");
 
         System.out.println("Dni");
         dni = sc.nextLine();sc.next();
@@ -160,7 +160,9 @@ public class ClienteView {
 
         if (cldao.obtenerTodos() != null) {
             ArrayList<Cliente> clientes = cldao.obtenerTodos();
-    
+            for (Cliente cliente : clientes) {
+                System.out.println(cliente);
+            }
             System.out.println("Clientes obtenidos");
             
             return clientes;

@@ -8,6 +8,7 @@ public class Taller {
     Scanner sc = new Scanner(System.in);
     ClienteView clienteView = new ClienteView();
     ProveedorVew proveedorView = new ProveedorVew();
+    PedidosView pedidosView = new PedidosView();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -200,7 +201,8 @@ public class Taller {
             System.out.println("2. Listar Cliente.");
             System.out.println("3. Listar Servicios.");
             System.out.println("4. Listar Proveedores.");
-            System.out.println("5. Volver al menú principal.");
+            System.out.println("5. Listar Pedidos.");
+            System.out.println("6. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
@@ -215,6 +217,9 @@ public class Taller {
                 }
                 case 4 -> {
                     proveedorView.listarProveedores();
+                }
+                case 5 -> {
+                    pedidosView.listarPedidos();
                 }
             }
         } while (opcion != 5);
@@ -307,5 +312,34 @@ public class Taller {
                 }
             }
         } while (opcion != 3);
+    }
+
+    public void MenuPedidos(){
+        do{
+            System.out.println("¿Que desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Registrar nuevo pedido.");
+            System.out.println("2. Actualizar algún pedido");
+            System.out.println("3. Eliminar Pedido.");
+            System.out.println("4. Volver al menú Principal");
+            opcion = sc.nextInt();
+            sc.next();
+            switch(opcion){
+                case 1 -> {
+                    pedidosView.crearPedido();
+                }
+                case 2 -> {
+                    pedidosView.gestionarPedido();
+                }
+                case 3 -> {
+                    pedidosView.eliminarPedido();
+                }
+                case 4 -> {
+                    //Volvemos al menú principal
+                }
+                default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        }while (opcion != 4);
     }
 }
