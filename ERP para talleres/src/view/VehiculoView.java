@@ -1,6 +1,5 @@
 package view;
 
-import dao.EmpleadoDAO;
 import dao.VehiculoDAO;
 import java.util.List;
 import java.util.Map;
@@ -106,25 +105,25 @@ public class VehiculoView {
         if (vdao.obtenerTodos() != null) {
 
             do{
-                System.out.println("¿Qué empleado desea eliminar?");
-                System.out.println("Introduzca su Dni: ");
+                System.out.println("¿Qué vehiculo desea eliminar?");
+                System.out.println("Introduzca su matricula: ");
                 respuesta = sc.nextLine();sc.next();
             
                 
-                if ( emdao.buscarPorDni(respuesta) != null) {
+                if ( vdao.buscarPorMatricula(respuesta) != null) {
         
-                    emdao.eliminar(respuesta);
-                    System.out.println("Empleado eliminado con exito");
+                    vdao.eliminar(respuesta);
+                    System.out.println("Vehiculo eliminado con exito");
                     control = true;
                 } else {
-                    System.out.println("El DNI que ha introducido no esta relacionado con ningun empleado existente");
+                    System.out.println("La matricula que ha introducido no esta relacionado con ningun vehiculo existente");
                     
                 }
     
             }while(!control);
 
         } else {
-            System.out.println("Si no hay empleados como vas a borrarlos, iluminado");
+            System.out.println("Si no hay vehiculos como vas a borrarlos, iluminado");
         }
             
         
