@@ -1,5 +1,9 @@
 package dao;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import model.Cliente;
 import model.Vehiculo;
 
@@ -11,13 +15,14 @@ public class VehiculoDAO {
         Connection conexion = ConexionBD.conectar();
         
         if (conexion != null) {
+
             
             String query = "INSERT INTO Vehiculos (Matricula, Marca, Modelo, Cliente) VALUES (?, ?, ?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(query)) {
                 stmt.setString(1, vehiculo.getMatricula()); // Asigna el valor de la matricula
                 stmt.setString(2, vehiculo.getMarca()); 
                 stmt.setString(3, vehiculo.getModelo());
-                stmt.setString(4, vehiculo.getPropietario().getdni());
+                stmt.setString(4, vehiculo.getPropietario());
                 
                 stmt.executeUpdate(); // Ejecuta la consulta de inserción
                 System.out.println("Empleado agregado exitosamente.");
@@ -66,7 +71,7 @@ public class VehiculoDAO {
 
     }
 
-    public Vehiculo buscarPorDni(String matricula, Cliente propietario){
+    public Vehiculo buscarPorMatricula(String matricula, Cliente propietario){
         Connection conexion = ConexionBD.conectar();
         if (conexion != null) {
             Vehiculo vehiculo;
@@ -80,7 +85,7 @@ public class VehiculoDAO {
         
 
             try {
-                String query = "SELECT Matricula, Marca, Modelo, Color, Cliente " + "FROM Vehiculos WHERE Dni_Cliente = ?";
+                String query = "SELECT Matricula, Marca, Modelo, Color, Cliente " + "FROM Vehiculos WHERE Matricula = ?";
 
                 stmt = conexion.prepareStatement(query);
                 stmt.setString(1, dni.trim()); // Usamos trim() para limpiar espacios
@@ -96,7 +101,7 @@ public class VehiculoDAO {
                     dni = rs.getString("Cliente");
                     
 
-                    vehiculo = new Vehiculo(matricula, marca, modelo, color, propietario);
+                    vehiculo = new Vehiculo(matricula, marca, modelo, color, dni);
                     return vehiculo;
                 }
                 
@@ -114,5 +119,57 @@ public class VehiculoDAO {
         }
         return null;
     }
+
+    public Map<String, Object> buscarClientePorDni(String dni) {
+        Connection conexion = ConexionBD.conectar();
+        Map<String, Object> resultado = new HashMap<>();
+        List<Map<String, String>> vehiculos = new ArrayList<>();
+
+        if (conexion != null) {
+            // Consulta para obtener datos del cliente y sus vehículos
+            String query = "SELECT c.Nombre, c.Apellidos, v.Matricula " + "FROM Clientes c LEFT JOIN Vehiculos v " +
+                        "ON c.DNI_Clientes = v.Clientes " +
+                        "WHERE c.DNI_Clientes = ?";
+
+            try (PreparedStatement pstm = conexion.prepareStatement(query)) {
+                pstm.setString(1, dni);
+                ResultSet rs = pstm.executeQuery();
+
+                boolean encontrado = false;
+                while (rs.next()) {
+                    encontrado = true;
+                    // Si es la primera iteración, guardamos los datos del cliente
+                    if (resultado.isEmpty()) {
+                        resultado.put("nombre", rs.getString("Nombre"));
+                        resultado.put("apellidos", rs.getString("Apellidos"));
+                    }
+
+                    // Añadimos cada vehículo a la lista
+                    if (rs.getString("Matricula") != null) {
+                        Map<String, String> vehiculo = new HashMap<>();
+                        vehiculo.put("matricula", rs.getString("Matricula"));
+                        vehiculos.add(vehiculo);
+                    }
+                }
+
+                if (!encontrado) {
+                    return null; // Cliente no encontrado
+                }
+
+                resultado.put("vehiculos", vehiculos);
+
+            } catch (SQLException e) {
+                System.out.println("Error al realizar la consulta: " + e.getMessage());
+                return null;
+            } finally {
+                try {
+                    if (conexion != null) conexion.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al cerrar la conexión: " + e.getMessage());
+                }
+            }
+    }
+    return resultado;
+}
 }
 
