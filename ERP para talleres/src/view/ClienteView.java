@@ -155,7 +155,7 @@ public class ClienteView {
 
     }
         
-    public ArrayList<Cliente> clientesMostrar() {
+    public void clientesMostrar() {
         ClientesDAO cldao = new ClientesDAO();
 
         if (cldao.obtenerTodos() != null) {
@@ -165,11 +165,11 @@ public class ClienteView {
             }
             System.out.println("Clientes obtenidos");
             
-            return clientes;
+            
             
         }else {
             System.out.println("¿Otra vez intentando conseguir cosas que no existen?");
-            return null;
+            
         }
     }
     

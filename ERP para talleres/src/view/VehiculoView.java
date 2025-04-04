@@ -1,6 +1,7 @@
 package view;
 
 import dao.VehiculoDAO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -172,6 +173,22 @@ public class VehiculoView {
         }
     }
 
-    
+    public void vehiculosMostrar() {
+        VehiculoDAO vdao = new VehiculoDAO();
+
+        if (vdao.obtenerTodos() != null) {
+            ArrayList<Vehiculo> vehiculos = vdao.obtenerTodos();
+            for (Vehiculo vehiculo : vehiculos) {
+                System.out.println(vehiculo);
+            }
+            System.out.println("Vehiculos obtenidos");
+            
+            
+            
+        }else {
+            System.out.println("¿Otra vez intentando conseguir cosas que no existen?");
+            
+        }
+    }
 
 }
