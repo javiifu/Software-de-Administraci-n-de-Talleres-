@@ -5,7 +5,8 @@ import java.util.Scanner;
 import model.Pedido;
 import model.Proveedor;
 import model.Producto;
-import java.time.LocalDate; //importamos esta biblioteca para que cuando se cree el pedido se introduzca la fecha acutal en la que se realiza. 
+import java.time.LocalDate;//importamos esta biblioteca para que cuando se cree el pedido se introduzca la fecha acutal en la que se realiza.
+import java.time.format.DateTimeFormatter;  //Importamos esta biblioteca para poder cambiar la variable a tipo string. 
 
 public class PedidosView {
     PedidoDAO peddao = new PedidoDAO();
@@ -110,8 +111,9 @@ public class PedidosView {
     }
     public void crearPedido(){
         PedidoDAO peddao = new PedidoDAO();   
-        String numPedido;
+        int numPedido;
         LocalDate fechaPedido = LocalDate.now();  //utilizamos la siguiente funcion para poder realizar un pedido con la fecha actual.
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String nombreProveedor;
         int cantidad;
         int costeUnidad;
@@ -120,9 +122,11 @@ public class PedidosView {
         String fechaEntrega;
         String fechaRecepcion;
         
+        String fechaPedidoF = fechaPedido.format(formato);
+
         System.out.println("Introduzca los datos de su pedido");
         System.out.println("Número de pedido: ");
-        numPedido = sc.nextLine();
+        numPedido = sc.nextInt();
         sc.next();
 
         System.out.println("Introduzca el nombre del producto del que quiere realizar el pedido");
@@ -151,10 +155,29 @@ public class PedidosView {
         Proveedor proveedor = new Proveedor(nombreProveedor, null, null, nombreProducto, null, null);
         Producto producto = new Producto(nombreProducto, cantidad, costeUnidad, proveedor);
 
-        Pedido pedido = new Pedido(cantidad, numPedido, proveedor, costeUnidad, cantidad, producto, estado, fechaEntrega, fechaRecepcion);
+        Pedido pedido = new Pedido(numPedido, fechaPedidoF, proveedor, costeUnidad, cantidad, producto, estado, fechaEntrega, fechaRecepcion);
 
         peddao.insertarPedido(pedido);
         System.out.println("Pedido creado correctamente");
         
+    }
+    public void eliminarPedido(){
+        int id;
+        System.out.println("Introduzca el ID dle pedido que desea eliminar: ");
+        id = sc.nextInt();
+        sc.next();
+        peddao.eliminarPedido(id);
+        System.out.println("Pedido eliminado correctamente");
+    }
+    
+    public ArrayList<Pedido> listarPedidos(){
+
+        if (peddao.obtenerPedidos() != null) {
+            ArrayList<Pedido> listaPedidos = peddao.obtenerPedidos();
+            return listaPedidos;
+        } else {
+            System.out.println("No hay pedidos disponibles.");
+            return null;
+        }
     }
 }
