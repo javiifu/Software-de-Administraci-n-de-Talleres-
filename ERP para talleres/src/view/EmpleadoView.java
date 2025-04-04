@@ -154,18 +154,23 @@ public class EmpleadoView {
 
     }
 
-    public ArrayList<Empleado> empleadosMostrar() {
+    public void empleadosMostrar() {
         EmpleadoDAO emdao = new EmpleadoDAO();
         if (emdao.obtenerTodos() != null) {
             
             ArrayList<Empleado> empleados = emdao.obtenerTodos();
+
+            for (Empleado empleado : empleados) {
+                System.out.println(empleado);
+
+            }
     
             System.out.println("Clientes obtenidos");
             
-            return empleados;
+            
         } else {
             System.out.println("¿Otra vez intentando conseguir cosas que no existen?");
-            return null;
+            
         }
     }
 
