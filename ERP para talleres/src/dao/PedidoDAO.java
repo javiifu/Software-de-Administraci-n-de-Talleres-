@@ -109,7 +109,7 @@ public class PedidoDAO {
 
                     // Construir los objetos asociados
                     Proveedor proveedor = new Proveedor("NombreDesconocido", proveedorNIF, "", "", "", "");
-                    Producto producto = new Producto(nombreProducto, 0, costeUnidad, proveedor); // stock = 0, ya que no lo tienes en esta tabla
+                    Producto producto = new Producto(nombreProducto, 0, proveedor); // stock = 0, ya que no lo tienes en esta tabla
                      // datos ficticios
 
                     // Construir el objeto Pedido
@@ -146,7 +146,7 @@ public class PedidoDAO {
     
                     // Objetos ficticios solo con datos mínimos
                     Proveedor proveedor = new Proveedor("NombreDesconocido", proveedorNIF, "", "", "", "");
-                    Producto producto = new Producto(nombreProducto, 0, costeUnidad, proveedor);
+                    Producto producto = new Producto(nombreProducto, 0, proveedor);
 
                     Pedido pedido = new Pedido(numeroPedido, fechaPedido, proveedor, importe, cantidad, producto, estado, fechaEntrega, fechaRecepcion);
                     pedidos.add(pedido);

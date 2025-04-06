@@ -5,9 +5,10 @@ public class Factura {
     private String fecha;
     private Cliente cliente;
     private int importe;
+    private String servicio;
 
     //Constructor de la clase
-    public Factura (int numeroFactura, String fecha, Cliente cliente, int importe){
+    public Factura (int numeroFactura, String fecha, Cliente cliente, int importe, String servicio){
         this.numeroFactura = numeroFactura;
         this.fecha = fecha;
         this.cliente = cliente;
@@ -37,4 +38,11 @@ public class Factura {
     public void setImporte(int importe){
         this.importe = importe;
     }
+    public String getServicio(){
+        return servicio;
+    }
+    public void setServicio(String servicio){
+        this.servicio = servicio;
+    }
+   
 }

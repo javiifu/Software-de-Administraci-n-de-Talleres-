@@ -153,7 +153,7 @@ public class PedidosView {
         sc.next();
 
         Proveedor proveedor = new Proveedor(nombreProveedor, null, null, nombreProducto, null, null);
-        Producto producto = new Producto(nombreProducto, cantidad, costeUnidad, proveedor);
+        Producto producto = new Producto(nombreProducto, cantidad, proveedor);
 
         Pedido pedido = new Pedido(numPedido, fechaPedidoF, proveedor, costeUnidad, cantidad, producto, estado, fechaEntrega, fechaRecepcion);
 

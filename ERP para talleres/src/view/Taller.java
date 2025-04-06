@@ -111,22 +111,18 @@ public class Taller {
         do { 
             System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
             System.out.println("1. Crear Factura.");
-            System.out.println("2. Modificar Factura.");
-            System.out.println("3. Mostrar Factura específica.");
-            System.out.println("4. Volver al menú principal.");
+            System.out.println("2. Mostrar Factura específica.");
+            System.out.println("3. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
                 case 1 -> {
-                    //Crear factura
+                    //FacturaView.crearFactura();
                 }
                 case 2 -> {
-                    //Modificar factura
-                }
-                case 3 -> {
                     //Mostrar factura específica
                 }
-                case 4 -> {
+                case 3 -> {
                     //Volver al menú principal
                 }
                 default -> {

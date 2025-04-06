@@ -91,6 +91,7 @@ CREATE TABLE Factura (
     Cliente VARCHAR(50),
     Servicio INT(20),
     Coste DOUBLE(6,2),
+    Fecha DATE CURRENT_TIMTESTAMP,
     FOREIGN KEY (Servicio) REFERENCES Servicios(ID_Servicio),
     FOREIGN KEY (Cliente) REFERENCES Clientes(DNI_Cliente)
 
