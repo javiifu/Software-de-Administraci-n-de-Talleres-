@@ -12,6 +12,7 @@ public class Taller {
     PedidosView pedidosView = new PedidosView();
     EmpleadoView empleadoView = new EmpleadoView();
     FacturaView FacturaView = new FacturaView();
+    VehiculoView vehiculoView = new VehiculoView();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -22,6 +23,7 @@ public class Taller {
             System.out.println("1. Registrar Cliente.");
             System.out.println("2. Registrar Empleado.");
             System.out.println("3. Registrar Proveedor.");
+            System.out.println("4, Registrar vehiculo");
             System.out.println("4. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine(); //Todos los sc.nextLine() o sc.next() serán para limpiar el bufer del scanner
@@ -37,6 +39,9 @@ public class Taller {
                     proveedorView.crearProveedor();
                 }
                 case 4 -> {
+                    vehiculoView.crearVehiculo();
+                }
+                case 5 -> {
                     //Volver al menú principal
                 }
                 default -> {
@@ -44,7 +49,7 @@ public class Taller {
                 }
     
             }
-        } while (opcion !=4);
+        } while (opcion != 5);
         
 
     }
@@ -206,11 +211,12 @@ public class Taller {
             System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
             System.out.println("1. Listar Empleados.");
             System.out.println("2. Listar Cliente.");
-            System.out.println("3. Listar Servicios.");
+            System.out.println("3. Listar Vehiculos .");
             System.out.println("4. Listar Proveedores.");
             System.out.println("5. Listar Pedidos.");
             System.out.println("6. Listar Facturas.");
-            System.out.println("7. Volver al menú principal.");
+            System.out.println("7. Listar Vehiculos de Clientes");
+            System.out.println("8. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
@@ -221,7 +227,7 @@ public class Taller {
                     clienteView.clientesMostrar();
                 }
                 case 3 -> {
-                    //listar servicios
+                    vehiculoView.vehiculosMostrar();
                 }
                 case 4 -> {
                     proveedorView.listarProveedores();
@@ -232,8 +238,11 @@ public class Taller {
                 case 6 -> {
                     FacturaView.listarFacturas();
                 }
+                case 7 -> {
+                    vehiculoView.buscarCliente();
+                }
             }
-        } while (opcion != 6);
+        } while (opcion != 8);
         
     }
     public void menuGestionarDatosTaller(){
@@ -242,7 +251,8 @@ public class Taller {
             System.out.println("1. Gestionar Proveedores.");
             System.out.println("2. Gestionar Empleados.");
             System.out.println("3. Gestionar Cliente.");
-            System.out.println("4. Volver al menú principal.");
+            System.out.println("4. Gestionar Vehiculo");
+            System.out.println("5. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
@@ -250,13 +260,16 @@ public class Taller {
                     subMenuGestionProveedor();
                 }
                 case 2 -> {
-                    empleadoView.gestionarEmpleado();
+                    subMenuGestionEmpleado();
                 }
                 case 3 -> {
                     subMenuGestionCliente();
                 }
+                case 4 -> {
+                    subMenuGestionVehiculo();
+                }
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
         
     }
     public void menuContabilidad(){
@@ -319,6 +332,48 @@ public class Taller {
                     proveedorView.eliminarProveedor();
                 }
                 default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        } while (opcion != 3);
+    }
+    public void subMenuGestionVehiculo(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Modificar Vehiculo datos de vehiculo.");
+            System.out.println("2. Eliminar Vehiculo.");
+            System.out.println("3. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    vehiculoView.gestionarVehiculo();
+                }
+                case 2 -> {
+                    vehiculoView.eliminarVehiculo();
+                }
+               default -> {
+                    System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                }
+            }
+        } while (opcion != 3);
+    }
+    public void subMenuGestionEmpleado(){
+        do { 
+            System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
+            System.out.println("1. Modificar Empleado datos de empleado.");
+            System.out.println("2. Eliminar Empleado.");
+            System.out.println("3. Volver al menú principal.");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch(opcion){
+                case 1 -> {
+                    empleadoView.gestionarEmpleado();
+                }
+                case 2 -> {
+                    empleadoView.eliminarEmpleado();
+                }
+               default -> {
                     System.out.println("Opción no válida. Por favor, elija una opción válida.");
                 }
             }

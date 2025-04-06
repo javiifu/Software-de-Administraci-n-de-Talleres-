@@ -19,8 +19,8 @@ public class App {
             System.out.println("5. Facturas.");
             System.out.println("6. Citas.");
             System.out.println("7. Asignar empleado a un servicio");
-            System.out.println("8. Listas (Empleados, Cliente, Servicios y Proveedores).");
-            System.out.println("9. Gestionar (Proveedores, Empleados, Cliente).");
+            System.out.println("8. Listas (Empleados, Cliente, Servicios, Proveedores y Vehiculos).");
+            System.out.println("9. Gestionar (Proveedores, Empleados, Cliente y Vehiculos).");
             System.out.println("10. Contabilidad.");
             System.out.println("11. Salir.");
             opcion = sc.nextInt();
