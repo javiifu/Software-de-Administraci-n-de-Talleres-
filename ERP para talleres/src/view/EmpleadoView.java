@@ -80,7 +80,7 @@ public class EmpleadoView {
 
         }while(eleccion != 6);
 
-        
+        sc.close();
     }
 
     public void crearEmpleado() {
@@ -117,6 +117,8 @@ public class EmpleadoView {
 
         Empleado empleado = new Empleado(nombre, apellidos, dni, telefono, numeroseg, cuenta);
         emdao.insertar(empleado);
+        sc.close();
+        System.out.println("Empleado creado con exito");
     }
 
     public void eliminarEmpleado() {
@@ -150,7 +152,7 @@ public class EmpleadoView {
             System.out.println("Si no hay empleados como vas a borrarlos, iluminado");
         }
             
-        
+        sc.close();
 
     }
 
