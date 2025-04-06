@@ -80,7 +80,8 @@ public class ClienteView {
             
 
         }while(eleccion != 6);
-
+        sc.close();
+        System.out.println("Cliente actualizado con exito");
         
     }
 
@@ -118,6 +119,9 @@ public class ClienteView {
 
         Cliente cliente = new Cliente(nombre, apellidos, dni, direccion, telefono, email);
         cldao.insertar(cliente);
+
+        sc.close();
+        System.out.println("Cliente creado con exito");
     }       
            
     public void eliminarCliente() {
@@ -151,7 +155,8 @@ public class ClienteView {
             System.out.println("Si no hay clientes como vas a borrarlos, iluminado");
         }
             
-        
+        sc.close();
+        System.out.println("Cliente eliminado con exito");
 
     }
         
