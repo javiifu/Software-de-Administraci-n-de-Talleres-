@@ -1,7 +1,6 @@
 package view;
 import java.util.Scanner;
 
-import model.Factura;
 
 public class Taller {
 
@@ -210,7 +209,8 @@ public class Taller {
             System.out.println("3. Listar Servicios.");
             System.out.println("4. Listar Proveedores.");
             System.out.println("5. Listar Pedidos.");
-            System.out.println("6. Volver al menú principal.");
+            System.out.println("6. Listar Facturas.");
+            System.out.println("7. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
@@ -229,8 +229,11 @@ public class Taller {
                 case 5 -> {
                     pedidosView.listarPedidos();
                 }
+                case 6 -> {
+                    FacturaView.listarFacturas();
+                }
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
         
     }
     public void menuGestionarDatosTaller(){
