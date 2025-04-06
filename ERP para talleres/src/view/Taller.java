@@ -1,6 +1,8 @@
 package view;
 import java.util.Scanner;
 
+import model.Factura;
+
 public class Taller {
 
 
@@ -10,6 +12,7 @@ public class Taller {
     ProveedorVew proveedorView = new ProveedorVew();
     PedidosView pedidosView = new PedidosView();
     EmpleadoView empleadoView = new EmpleadoView();
+    FacturaView FacturaView = new FacturaView();
     int opcion;
     //sub Menu de Registro
     public void menuRegistro(){
@@ -112,17 +115,25 @@ public class Taller {
             System.out.println("¿Qué desea hacer? (Escriba el número asociado a la opción):");
             System.out.println("1. Crear Factura.");
             System.out.println("2. Mostrar Factura específica.");
+            System.out.println("3. Modificar Factura.");
+            System.out.println("4. Eliminar Factura.");
             System.out.println("3. Volver al menú principal.");
             opcion = sc.nextInt();
             sc.nextLine();
             switch(opcion){
                 case 1 -> {
-                    //FacturaView.crearFactura();
+                    FacturaView.crearFactura();
                 }
                 case 2 -> {
-                    //Mostrar factura específica
+                    FacturaView.buscarFactura();
                 }
                 case 3 -> {
+                    FacturaView.actualizarFactura();
+                }
+                case 4 -> {
+                    FacturaView.eliminarFactura();
+                }
+                case 5 -> {
                     //Volver al menú principal
                 }
                 default -> {
