@@ -16,9 +16,6 @@ public class VehiculoView {
         Scanner sc = new Scanner(System.in);
         int eleccion;
         String respuesta;
-        String matricula = "Matricula";
-        String marca = "Marca";
-        String modelo = "Modelo";
         String color = "Color";
         String propietario = "Cliente";
         
@@ -60,7 +57,7 @@ public class VehiculoView {
 
         }while(eleccion != 5);
 
-        
+        sc.close();
     }
     
     public void crearVehiculo() {
@@ -94,6 +91,8 @@ public class VehiculoView {
 
         Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, color, propietario);
         vdao.insertar(vehiculo);
+
+        sc.close();
     }
 
     public void eliminarVehiculo() {
@@ -127,7 +126,7 @@ public class VehiculoView {
             System.out.println("Si no hay vehiculos como vas a borrarlos, iluminado");
         }
             
-        
+        sc.close();
 
     }
 
